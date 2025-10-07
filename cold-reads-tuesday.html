@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuesday Cold Read - 3rd Grade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #FFD93D;
+            --coral: #FF6B6B;
+            --teal: #4ECDC4;
+            --navy: #2C3E50;
+            --warm-white: #FFFEF7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: var(--navy);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 52rem;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: 24px;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.05),
+                0 8px 16px rgba(0,0,0,0.05),
+                0 16px 32px rgba(0,0,0,0.05);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+
+        .header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.125rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .directions {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 6px solid #2196F3;
+        }
+
+        .directions p {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .story-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-title h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-title .subtitle {
+            font-style: italic;
+            color: #666;
+            font-size: 1.125rem;
+        }
+
+        .story-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid #E0E0E0;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .story-content p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .story-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .line-numbers {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .line-number {
+            color: #999;
+            font-size: 0.85rem;
+            text-align: right;
+            min-width: 30px;
+            padding-top: 0.2rem;
+        }
+
+        .questions-section {
+            margin-top: 3rem;
+        }
+
+        .question {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 2px solid #E0E0E0;
+            transition: all 0.2s ease;
+        }
+
+        .question:hover {
+            border-color: var(--teal);
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.2);
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .choices {
+            margin-left: 2.5rem;
+        }
+
+        .choice {
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .choice:hover {
+            background: #F5F5F5;
+            border-color: var(--teal);
+        }
+
+        .choice.selected {
+            background: var(--teal);
+            color: white;
+            border-color: var(--navy);
+            transform: scale(1.02);
+        }
+
+        .choice.correct {
+            background: #4CAF50;
+            color: white;
+            border-color: #2E7D32;
+        }
+
+        .choice.incorrect {
+            background: #F44336;
+            color: white;
+            border-color: #C62828;
+        }
+
+        .choice.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .choice-letter {
+            font-weight: 700;
+            color: var(--coral);
+            margin-right: 0.5rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--primary-yellow);
+            border-radius: 16px;
+            font-weight: 600;
+        }
+
+        /* Scoring and Results Styles */
+        .score-section {
+            background: linear-gradient(135deg, #E8F5E8 0%, #C8E6C9 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            text-align: center;
+            border: 3px solid #4CAF50;
+            display: none;
+        }
+
+        .score-section.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1B5E20;
+            margin: 1rem 0;
+        }
+
+        .score-message {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .restart-btn {
+            background: var(--coral);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .restart-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        .progress-bar {
+            background: #E0E0E0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: var(--teal);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .back-btn {
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #1a252f;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .question {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .story-content {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Tuesday Cold Read</h1>
+            <div class="subtitle">Week of October 6–10, 2025</div>
+        </div>
+
+        <a href="index.html" class="back-btn">← Back to Newsletter</a>
+
+        <div class="directions">
+            <p>📖 Directions: Read the selection carefully and answer the questions that follow. Click on your answer choice for each question.</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="story-title">
+            <h2>The Magic Garden</h2>
+            <div class="subtitle">A Fantasy Story</div>
+        </div>
+
+        <div class="story-content">
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Emma had always loved her grandmother's garden, but today something was different. The roses were glowing with a soft pink light, and the sunflowers were taller than the house. Even the butterflies seemed to sparkle as they danced between the flowers.</p>
+                <div class="line-number">15</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>"Grandma, what's happening to your garden?" Emma asked, her eyes wide with wonder.</p>
+                <div class="line-number">22</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Her grandmother smiled mysteriously. "Every hundred years, my garden becomes magical for one day. The flowers can talk, the vegetables sing, and if you're very kind, they might grant you one wish."</p>
+                <div class="line-number">35</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Emma couldn't believe her ears. She walked carefully through the garden, listening. Sure enough, she could hear the roses whispering secrets and the carrots humming a cheerful tune. A wise old oak tree at the garden's edge spoke to her in a deep, rumbling voice.</p>
+                <div class="line-number">52</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>"Young one," the oak said, "I have watched this garden for many magical days. What wish would you make if you could have anything in the world?"</p>
+                <div class="line-number">65</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Emma thought carefully. She could wish for toys, or candy, or even to fly. But then she looked at her grandmother, who was gently tending to the magical flowers with such love and care.</p>
+                <div class="line-number">78</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>"I wish," Emma said slowly, "that my grandmother could always feel as happy as she does right now, surrounded by her beautiful garden."</p>
+                <div class="line-number">90</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>The oak tree's branches rustled with approval. "That is a truly selfless wish," it said. "Your grandmother's joy will last forever, and so will the magic of this garden in your heart."</p>
+                <div class="line-number">105</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>As the sun set, the garden returned to normal, but Emma knew that the real magic wasn't in the glowing flowers or talking trees. The real magic was in the love she shared with her grandmother.</p>
+                <div class="line-number">120</div>
+            </div>
+        </div>
+
+        <div class="questions-section">
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">1</span>
+                    What makes Emma realize the garden is magical?
+                </div>
+                <div class="choices">
+                    <div class="choice"><span class="choice-letter">A</span>The flowers are glowing and the sunflowers are very tall</div>
+                    <div class="choice"><span class="choice-letter">B</span>Her grandmother tells her it's magical</div>
+                    <div class="choice"><span class="choice-letter">C</span>The butterflies are different colors</div>
+                    <div class="choice"><span class="choice-letter">D</span>The garden is bigger than usual</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">2</span>
+                    According to the story, how often does the garden become magical?
+                </div>
+                <div class="choices">
+                    <div class="choice"><span class="choice-letter">A</span>Every day</div>
+                    <div class="choice"><span class="choice-letter">B</span>Every week</div>
+                    <div class="choice"><span class="choice-letter">C</span>Every hundred years</div>
+                    <div class="choice"><span class="choice-letter">D</span>Every year</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">3</span>
+                    What does Emma hear the vegetables doing in the magical garden?
+                </div>
+                <div class="choices">
+                    <div class="choice"><span class="choice-letter">A</span>Growing very fast</div>
+                    <div class="choice"><span class="choice-letter">B</span>Singing a cheerful tune</div>
+                    <div class="choice"><span class="choice-letter">C</span>Changing colors</div>
+                    <div class="choice"><span class="choice-letter">D</span>Moving around the garden</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">4</span>
+                    What does Emma's wish show about her character?
+                </div>
+                <div class="choices">
+                    <div class="choice"><span class="choice-letter">A</span>She is selfish and wants things for herself</div>
+                    <div class="choice"><span class="choice-letter">B</span>She is thoughtful and cares about others</div>
+                    <div class="choice"><span class="choice-letter">C</span>She is afraid of the magical garden</div>
+                    <div class="choice"><span class="choice-letter">D</span>She doesn't believe in magic</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-section" id="scoreSection">
+            <div class="score-title">🎉 Great Job!</div>
+            <div class="score-display" id="scoreDisplay">0/4</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="restart-btn" onclick="restartQuiz()">🔄 Try Again</button>
+        </div>
+
+        <div class="footer-note">
+            ⭐ Remember to read carefully and look back at the story to find your answers!
+        </div>
+    </div>
+
+    <script>
+        // Quiz data with correct answers
+        const correctAnswers = {
+            1: 'A', // The flowers are glowing and the sunflowers are very tall
+            2: 'C', // Every hundred years
+            3: 'B', // Singing a cheerful tune
+            4: 'B'  // She is thoughtful and cares about others
+        };
+
+        let userAnswers = {};
+        let quizCompleted = false;
+
+        // Initialize the quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeQuiz();
+        });
+
+        function initializeQuiz() {
+            // Add click listeners to all choices
+            document.querySelectorAll('.choice').forEach(choice => {
+                choice.addEventListener('click', function() {
+                    if (quizCompleted) return;
+                    
+                    const questionNumber = this.closest('.question').querySelector('.question-number').textContent;
+                    const choiceLetter = this.querySelector('.choice-letter').textContent;
+                    
+                    selectAnswer(questionNumber, choiceLetter, this);
+                });
+            });
+            
+            updateProgress();
+        }
+
+        function selectAnswer(questionNumber, choiceLetter, choiceElement) {
+            // Remove previous selection from this question
+            const question = choiceElement.closest('.question');
+            question.querySelectorAll('.choice').forEach(choice => {
+                choice.classList.remove('selected');
+            });
+            
+            // Add selection to clicked choice
+            choiceElement.classList.add('selected');
+            
+            // Store the answer
+            userAnswers[questionNumber] = choiceLetter;
+            
+            // Update progress
+            updateProgress();
+            
+            // Check if all questions are answered
+            if (Object.keys(userAnswers).length === Object.keys(correctAnswers).length) {
+                setTimeout(() => {
+                    showResults();
+                }, 500);
+            }
+        }
+
+        function updateProgress() {
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const answeredQuestions = Object.keys(userAnswers).length;
+            const progressPercent = (answeredQuestions / totalQuestions) * 100;
+            
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+        }
+
+        function showResults() {
+            quizCompleted = true;
+            
+            // Calculate score
+            let correctCount = 0;
+            Object.keys(correctAnswers).forEach(questionNumber => {
+                const userAnswer = userAnswers[questionNumber];
+                const correctAnswer = correctAnswers[questionNumber];
+                
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                }
+                
+                // Show correct/incorrect feedback
+                const question = document.querySelector(`.question:nth-child(${questionNumber})`);
+                const choices = question.querySelectorAll('.choice');
+                
+                choices.forEach(choice => {
+                    const choiceLetter = choice.querySelector('.choice-letter').textContent;
+                    choice.classList.add('disabled');
+                    
+                    if (choiceLetter === correctAnswer) {
+                        choice.classList.add('correct');
+                    } else if (choiceLetter === userAnswer && userAnswer !== correctAnswer) {
+                        choice.classList.add('incorrect');
+                    }
+                });
+            });
+            
+            // Show score section
+            const scoreSection = document.getElementById('scoreSection');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreMessage = document.getElementById('scoreMessage');
+            
+            scoreDisplay.textContent = `${correctCount}/${Object.keys(correctAnswers).length}`;
+            
+            // Set message based on score
+            if (correctCount === Object.keys(correctAnswers).length) {
+                scoreMessage.textContent = 'Perfect! You got all questions right! 🌟';
+            } else if (correctCount >= Object.keys(correctAnswers).length * 0.75) {
+                scoreMessage.textContent = 'Excellent work! You\'re doing great! 👍';
+            } else if (correctCount >= Object.keys(correctAnswers).length * 0.5) {
+                scoreMessage.textContent = 'Good job! Keep practicing! 💪';
+            } else {
+                scoreMessage.textContent = 'Keep trying! Read the story again and try once more! 📚';
+            }
+            
+            scoreSection.classList.add('show');
+            
+            // Scroll to results
+            scoreSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function restartQuiz() {
+            // Reset all variables
+            userAnswers = {};
+            quizCompleted = false;
+            
+            // Reset all choices
+            document.querySelectorAll('.choice').forEach(choice => {
+                choice.classList.remove('selected', 'correct', 'incorrect', 'disabled');
+            });
+            
+            // Hide score section
+            document.getElementById('scoreSection').classList.remove('show');
+            
+            // Reset progress
+            updateProgress();
+            
+            // Scroll back to top
+            document.querySelector('.header').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
