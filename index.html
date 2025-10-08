@@ -744,6 +744,85 @@
             background: linear-gradient(135deg, #F0FFF5 0%, #E8FFF0 100%);
         }
 
+        /* Specials Rotation Section */
+        .specials-section {
+            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+            border: 2px solid #9C27B0;
+            box-shadow: 0 2px 8px rgba(156, 39, 176, 0.15);
+        }
+
+        .specials-section h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-align: center;
+            color: #6A1B9A;
+        }
+
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .special-day {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid #E1BEE7;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .special-day:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(156, 39, 176, 0.2);
+            border-color: #9C27B0;
+        }
+
+        .special-day .day-number {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #9C27B0;
+            margin-bottom: 0.25rem;
+        }
+
+        .special-day .special-icon {
+            font-size: 1.25rem;
+            margin: 0.25rem 0;
+            display: block;
+        }
+
+        .special-day .special-name {
+            font-weight: 600;
+            color: #6A1B9A;
+            font-size: 0.7rem;
+            line-height: 1.1;
+        }
+
+        @media (max-width: 768px) {
+            .specials-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .specials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .special-day .special-name {
+                font-size: 0.65rem;
+            }
+        }
+
         /* Footer provides closure */
         .footer {
             text-align: center;
@@ -1198,12 +1277,54 @@
             </div>
         </div>
 
+        <div class="specials-section">
+            <h3>Mr. Vargas' Specials Rotation</h3>
+            <div class="specials-grid">
+                <div class="special-day">
+                    <div class="day-number">1</div>
+                    <span class="special-icon">🗣️</span>
+                    <div class="special-name">Spanish</div>
+                </div>
+                <div class="special-day">
+                    <div class="day-number">2</div>
+                    <span class="special-icon">⚽</span>
+                    <div class="special-name">PE</div>
+                </div>
+                <div class="special-day">
+                    <div class="day-number">3</div>
+                    <span class="special-icon">🔬</span>
+                    <div class="special-name">STEM</div>
+                </div>
+                <div class="special-day">
+                    <div class="day-number">4</div>
+                    <span class="special-icon">💻</span>
+                    <div class="special-name">Digital Literacy</div>
+                </div>
+                <div class="special-day">
+                    <div class="day-number">5</div>
+                    <span class="special-icon">🏃</span>
+                    <div class="special-name">PE</div>
+                </div>
+                <div class="special-day">
+                    <div class="day-number">6</div>
+                    <span class="special-icon">🎨</span>
+                    <div class="special-name">Art</div>
+                </div>
+                <div class="special-day">
+                    <div class="day-number">7</div>
+                    <span class="special-icon">🎵</span>
+                    <div class="special-name">Music</div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
-            <p><strong>Ms. Feinberg & Mr. Vargas</strong></p>
+            <p><strong>Made with love ❤️ from your 3rd grade team</strong></p>
             <p>Thank you for being amazing parents! Feel free to reach out with any questions.</p>
         </div>
     </div>
 
+    <script src="stories.js"></script>
     <script>
         // Sticky date banner effect
         const dateBanner = document.querySelector('.date-banner');
