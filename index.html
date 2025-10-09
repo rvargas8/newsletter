@@ -756,87 +756,54 @@
 
         /* Specials Rotation Section */
         .specials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
             margin: 2rem 0;
         }
 
         .specials-section {
             background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
-            padding: 1.25rem;
-            border-radius: 16px;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
             border: 2px solid #9C27B0;
-            box-shadow: 0 2px 8px rgba(156, 39, 176, 0.15);
+            margin-bottom: 0.75rem;
         }
 
         .specials-section h3 {
             font-family: 'Fraunces', Georgia, serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            letter-spacing: 0.03em;
-            text-align: center;
             color: #6A1B9A;
+            margin-bottom: 0.5rem;
         }
 
         .specials-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 0.5rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         .special-day {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
             background: white;
-            padding: 0.5rem;
+            padding: 0.35rem 0.6rem;
             border-radius: 8px;
-            border: 1px solid #E1BEE7;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-
-        .special-day:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(156, 39, 176, 0.2);
-            border-color: #9C27B0;
+            font-size: 0.75rem;
         }
 
         .special-day .day-number {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: 0.9rem;
             font-weight: 700;
             color: #9C27B0;
-            margin-bottom: 0.25rem;
         }
 
         .special-day .special-icon {
-            font-size: 1.25rem;
-            margin: 0.25rem 0;
-            display: block;
+            font-size: 1rem;
         }
 
         .special-day .special-name {
             font-weight: 600;
             color: #6A1B9A;
-            font-size: 0.7rem;
-            line-height: 1.1;
-        }
-
-        @media (max-width: 768px) {
-            .specials-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .specials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .special-day .special-name {
-                font-size: 0.65rem;
-            }
         }
 
         /* Footer provides closure */
