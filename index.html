@@ -755,10 +755,16 @@
         }
 
         /* Specials Rotation Section */
+        .specials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
         .specials-section {
             background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
             padding: 1.25rem;
-            margin: 2rem 0;
             border-radius: 16px;
             border: 2px solid #9C27B0;
             box-shadow: 0 2px 8px rgba(156, 39, 176, 0.15);
@@ -1293,43 +1299,86 @@
             </div>
         </div>
 
-        <div class="specials-section">
-            <h3>Mr. Vargas' Specials Rotation</h3>
-            <div class="specials-grid">
-                <div class="special-day">
-                    <div class="day-number">Day 1</div>
-                    <span class="special-icon">🗣️</span>
-                    <div class="special-name">Spanish</div>
+        <div class="specials-container">
+            <div class="specials-section">
+                <h3>Mr. Vargas' Specials Rotation</h3>
+                <div class="specials-grid">
+                    <div class="special-day">
+                        <div class="day-number">Day 1</div>
+                        <span class="special-icon">🗣️</span>
+                        <div class="special-name">Spanish</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 2</div>
+                        <span class="special-icon">⚽</span>
+                        <div class="special-name">PE</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 3</div>
+                        <span class="special-icon">🔬</span>
+                        <div class="special-name">STEM</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 4</div>
+                        <span class="special-icon">💻</span>
+                        <div class="special-name">Digital Literacy</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 5</div>
+                        <span class="special-icon">🏃</span>
+                        <div class="special-name">PE</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 6</div>
+                        <span class="special-icon">🎨</span>
+                        <div class="special-name">Art</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 7</div>
+                        <span class="special-icon">🎵</span>
+                        <div class="special-name">Music</div>
+                    </div>
                 </div>
-                <div class="special-day">
-                    <div class="day-number">Day 2</div>
-                    <span class="special-icon">⚽</span>
-                    <div class="special-name">PE</div>
-                </div>
-                <div class="special-day">
-                    <div class="day-number">Day 3</div>
-                    <span class="special-icon">🔬</span>
-                    <div class="special-name">STEM</div>
-                </div>
-                <div class="special-day">
-                    <div class="day-number">Day 4</div>
-                    <span class="special-icon">💻</span>
-                    <div class="special-name">Digital Literacy</div>
-                </div>
-                <div class="special-day">
-                    <div class="day-number">Day 5</div>
-                    <span class="special-icon">🏃</span>
-                    <div class="special-name">PE</div>
-                </div>
-                <div class="special-day">
-                    <div class="day-number">Day 6</div>
-                    <span class="special-icon">🎨</span>
-                    <div class="special-name">Art</div>
-                </div>
-                <div class="special-day">
-                    <div class="day-number">Day 7</div>
-                    <span class="special-icon">🎵</span>
-                    <div class="special-name">Music</div>
+            </div>
+
+            <div class="specials-section">
+                <h3>Ms. Feinberg's Specials Rotation</h3>
+                <div class="specials-grid">
+                    <div class="special-day">
+                        <div class="day-number">Day 1</div>
+                        <span class="special-icon">🎵</span>
+                        <div class="special-name">Music</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 2</div>
+                        <span class="special-icon">🗣️</span>
+                        <div class="special-name">Spanish</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 3</div>
+                        <span class="special-icon">⚽</span>
+                        <div class="special-name">PE</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 4</div>
+                        <span class="special-icon">🔬</span>
+                        <div class="special-name">STEM</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 5</div>
+                        <span class="special-icon">💻</span>
+                        <div class="special-name">Digital Literacy</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 6</div>
+                        <span class="special-icon">🏃</span>
+                        <div class="special-name">PE</div>
+                    </div>
+                    <div class="special-day">
+                        <div class="day-number">Day 7</div>
+                        <span class="special-icon">🎨</span>
+                        <div class="special-name">Art</div>
+                    </div>
                 </div>
             </div>
         </div>
