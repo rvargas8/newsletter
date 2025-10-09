@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Contacts - 3rd Grade Team</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #FFD93D;
+            --coral: #FF6B6B;
+            --teal: #4ECDC4;
+            --navy: #2C3E50;
+            --warm-white: #FFFEF7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: var(--navy);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 52rem;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: 24px;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.05),
+                0 8px 16px rgba(0,0,0,0.05),
+                0 16px 32px rgba(0,0,0,0.05);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+
+        .header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        .back-btn:hover {
+            background: #44BBB4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
+        }
+
+        .teacher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .teacher-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid #E0E0E0;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .teacher-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .teacher-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .teacher-name {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .teacher-email {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            word-break: break-all;
+        }
+
+        .email-btn {
+            display: inline-block;
+            background: var(--coral);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .email-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #E0E0E0;
+            color: #666;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .teacher-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Newsletter</a>
+        
+        <div class="header">
+            <h1>👨‍🏫 Teacher Contacts 👩‍🏫</h1>
+            <p>Reach out to our amazing 3rd grade team!</p>
+        </div>
+
+        <div class="teacher-grid">
+            <div class="teacher-card">
+                <div class="teacher-icon">👩‍🏫</div>
+                <div class="teacher-name">Ms. Llerena</div>
+                <div class="teacher-email">illerena@charterk12.com</div>
+                <a href="mailto:illerena@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+
+            <div class="teacher-card">
+                <div class="teacher-icon">👩‍🏫</div>
+                <div class="teacher-name">Mrs. Southard</div>
+                <div class="teacher-email">gsouthard@charterk12.com</div>
+                <a href="mailto:gsouthard@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+
+            <div class="teacher-card">
+                <div class="teacher-icon">👩‍🏫</div>
+                <div class="teacher-name">Mrs. Owens</div>
+                <div class="teacher-email">mowens@charterk12.com</div>
+                <a href="mailto:mowens@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+
+            <div class="teacher-card">
+                <div class="teacher-icon">👩‍🏫</div>
+                <div class="teacher-name">Mrs. Martin</div>
+                <div class="teacher-email">bmartin@charterk12.com</div>
+                <a href="mailto:bmartin@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+
+            <div class="teacher-card">
+                <div class="teacher-icon">👩‍🏫</div>
+                <div class="teacher-name">Mrs. Hammons</div>
+                <div class="teacher-email">lhammons@charterk12.com</div>
+                <a href="mailto:lhammons@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+
+            <div class="teacher-card">
+                <div class="teacher-icon">👩‍🏫</div>
+                <div class="teacher-name">Ms. Feinberg</div>
+                <div class="teacher-email">cfeinberg@charterk12.com</div>
+                <a href="mailto:cfeinberg@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+
+            <div class="teacher-card">
+                <div class="teacher-icon">👨‍🏫</div>
+                <div class="teacher-name">Mr. Vargas</div>
+                <div class="teacher-email">rvargas@charterk12.com</div>
+                <a href="mailto:rvargas@charterk12.com?subject=Question from Parent" class="email-btn">
+                    📧 Send Email
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💖 We're here to support your child's learning journey!</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Feel free to reach out anytime with questions or concerns.</p>
+        </div>
+    </div>
+</body>
+</html>
+
