@@ -1641,9 +1641,15 @@
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navMenu = document.getElementById('navMenu');
         
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
             this.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            
+            // Close all dropdowns when closing menu
+            if (!navMenu.classList.contains('active')) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
         });
 
         // Mobile dropdown toggles
@@ -1657,6 +1663,7 @@
                     // Only on mobile
                     if (window.innerWidth <= 1024) {
                         e.preventDefault();
+                        e.stopPropagation();
                         dropdown.classList.toggle('active');
                         
                         // Close other dropdowns
@@ -1671,11 +1678,16 @@
                 // Close dropdown when clicking on any dropdown item
                 const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
                 dropdownItems.forEach(item => {
-                    item.addEventListener('click', function() {
+                    item.addEventListener('click', function(e) {
                         if (window.innerWidth <= 1024) {
+                            e.stopPropagation();
+                            // Close dropdown and menu
                             dropdown.classList.remove('active');
                             navMenu.classList.remove('active');
                             mobileMenuToggle.textContent = '☰';
+                            
+                            // Also close all other dropdowns
+                            dropdowns.forEach(d => d.classList.remove('active'));
                         }
                     });
                 });
@@ -1688,9 +1700,12 @@
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 1024) {
                 const isClickInsideNav = e.target.closest('.main-nav');
-                if (!isClickInsideNav && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileMenuToggle.textContent = '☰';
+                if (!isClickInsideNav) {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.textContent = '☰';
+                        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+                    }
                 }
             }
         });
