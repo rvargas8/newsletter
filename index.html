@@ -1667,6 +1667,18 @@
                         });
                     }
                 });
+
+                // Close dropdown when clicking on any dropdown item
+                const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        if (window.innerWidth <= 1024) {
+                            dropdown.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            mobileMenuToggle.textContent = '☰';
+                        }
+                    });
+                });
             });
         }
 
