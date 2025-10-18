@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legend of the Rainbow - 3rd Grade Cold Reads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #FFD93D;
+            --coral: #FF6B6B;
+            --teal: #4ECDC4;
+            --navy: #2C3E50;
+            --warm-white: #FFFEF7;
+            --reading-time: cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        /* Main Navigation Menu */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--coral) 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: white;
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            white-space: nowrap;
+        }
+
+        .nav-logo:hover {
+            color: var(--primary-yellow);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            transition: all 0.3s var(--reading-time);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.3);
+            color: var(--primary-yellow);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--primary-yellow);
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s var(--reading-time);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(255,255,255,0.1);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 1rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s var(--reading-time);
+            }
+
+            .nav-menu.active {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .nav-link {
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            body {
+                padding-top: 4.5rem;
+            }
+
+            .nav-container {
+                padding: 0;
+            }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+            padding: 5rem 1rem 2rem;
+            line-height: 1.6;
+            color: var(--navy);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 52rem;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: 24px;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.05),
+                0 8px 16px rgba(0,0,0,0.05),
+                0 16px 32px rgba(0,0,0,0.05);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--teal);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s var(--reading-time);
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--coral);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+
+        .header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.125rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .directions {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 6px solid #2196F3;
+        }
+
+        .directions p {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal), var(--primary-yellow));
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .story-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-title h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-title .subtitle {
+            font-style: italic;
+            color: #666;
+            font-size: 1.125rem;
+        }
+
+        .story-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid #E0E0E0;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .story-content p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .story-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .line-numbers {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .line-number {
+            color: #999;
+            font-size: 0.85rem;
+            text-align: right;
+            min-width: 30px;
+            padding-top: 0.2rem;
+        }
+
+        .questions-section {
+            margin-top: 3rem;
+        }
+
+        .question {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 2px solid #E0E0E0;
+            transition: all 0.2s ease;
+        }
+
+        .question:hover {
+            border-color: var(--teal);
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.2);
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .choices {
+            margin-left: 2.5rem;
+        }
+
+        .choice {
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .choice:hover {
+            background: #F5F5F5;
+            border-color: var(--teal);
+        }
+
+        .choice.selected {
+            background: var(--teal);
+            color: white;
+            border-color: var(--navy);
+            transform: scale(1.02);
+        }
+
+        .choice.correct {
+            background: #4CAF50;
+            color: white;
+            border-color: #2E7D32;
+        }
+
+        .choice.incorrect {
+            background: #F44336;
+            color: white;
+            border-color: #C62828;
+        }
+
+        .choice.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .choice-letter {
+            font-weight: 700;
+            color: var(--coral);
+            margin-right: 0.5rem;
+        }
+
+        .choice.selected .choice-letter,
+        .choice.correct .choice-letter,
+        .choice.incorrect .choice-letter {
+            color: white;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--primary-yellow);
+            border-radius: 16px;
+            font-weight: 600;
+        }
+
+        .score-section {
+            background: linear-gradient(135deg, #E8F5E8 0%, #C8E6C9 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            text-align: center;
+            border: 3px solid #4CAF50;
+            display: none;
+        }
+
+        .score-section.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1B5E20;
+            margin: 1rem 0;
+        }
+
+        .score-message {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .restart-btn {
+            background: var(--coral);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .restart-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        @media print {
+            .main-nav {
+                display: none;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .question {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 4.5rem 0.5rem 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .story-content {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span>🎓</span>
+                <span>RAMS third grade</span>
+            </a>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                ☰
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <span>🏠</span>
+                        <span>Newsletter</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="teacher-contacts.html" class="nav-link">
+                        <span>👨‍🏫</span>
+                        <span>Teachers</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://clever.com/login" class="nav-link" target="_blank">
+                        <span>🎓</span>
+                        <span>Clever</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://sla-charterschoolassociates.nutrislice.com/menu/riverview-academy-of-math-and-science" class="nav-link" target="_blank">
+                        <span>🍽️</span>
+                        <span>Menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Newsletter</a>
+        
+        <div class="header">
+            <h1>Cold Reads Practice</h1>
+            <div class="subtitle">Week of October 20–24, 2025</div>
+        </div>
+
+        <div class="directions">
+            <p>📖 Directions: Read the selection carefully and answer the questions that follow. Click on your answer choice for each question.</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="story-title">
+            <h2>The Legend of the Rainbow</h2>
+            <div class="subtitle">A Myth from Long Ago</div>
+        </div>
+
+        <div class="story-content">
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Long ago, according to an ancient legend, the world had no colors except black, white, and gray. Everything was dull and lifeless. The Sky Spirit looked down from the heavens and felt sad for the people below. They needed something to bring joy and hope to their lives.</p>
+                <div class="line-number">20</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>One day, the Sky Spirit called upon seven special birds. Each bird had a unique talent. The Sky Spirit gave each bird a different gift—a beautiful, vibrant color. The first bird received red, the second received orange, the third received yellow, and so on through violet. The birds were amazed by their brilliant new feathers.</p>
+                <div class="line-number">48</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>"You must share these colors with the world," the Sky Spirit instructed. The seven birds flew together across the sky, their colorful feathers leaving trails of light behind them. Whenever rain fell from the clouds, the birds would fly through the drops, painting them with all seven colors.</p>
+                <div class="line-number">70</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>The people below gazed up in wonder. They had never seen anything so beautiful. They named this magnificent sight a "rainbow" because it appeared when rain fell and the sun shone at the same time. The rainbow became a symbol of hope and happiness.</p>
+                <div class="line-number">90</div>
+            </div>
+
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>To this day, whenever you see a rainbow arching across the sky, remember the seven special birds who brought color to the world. Some people say that if you look carefully, you can still see the birds flying through the colorful arcs, keeping the legend alive.</p>
+                <div class="line-number">111</div>
+            </div>
+        </div>
+
+        <div class="questions-section">
+            <div class="question" data-question="1">
+                <div class="question-text">
+                    <span class="question-number">1</span>
+                    Why did the Sky Spirit feel sad?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>The birds had lost their feathers</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>The world had no colors and was dull</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>It never stopped raining</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>The people were not kind to each other</div>
+                </div>
+            </div>
+
+            <div class="question" data-question="2">
+                <div class="question-text">
+                    <span class="question-number">2</span>
+                    How many special birds did the Sky Spirit call upon?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>Five birds</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>Six birds</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>Seven birds</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>Eight birds</div>
+                </div>
+            </div>
+
+            <div class="question" data-question="3">
+                <div class="question-text">
+                    <span class="question-number">3</span>
+                    According to the legend, when does a rainbow appear?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>Only at night</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>When rain falls and the sun shines</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>When it snows</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>During thunderstorms</div>
+                </div>
+            </div>
+
+            <div class="question" data-question="4">
+                <div class="question-text">
+                    <span class="question-number">4</span>
+                    What did the rainbow become a symbol of?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>Power and strength</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>Hope and happiness</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>Sadness and fear</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>Rain and clouds</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-section" id="scoreSection">
+            <div class="score-title">🎉 Great Job!</div>
+            <div class="score-display" id="scoreDisplay">0/4</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="restart-btn" onclick="restartQuiz()">🔄 Try Again</button>
+        </div>
+
+        <div class="footer-note">
+            ⭐ Remember to read carefully and look back at the story to find your answers!
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: 'B',
+            2: 'C',
+            3: 'B',
+            4: 'B'
+        };
+
+        let userAnswers = {};
+        let answeredCount = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        document.querySelectorAll('.choice').forEach(choice => {
+            choice.addEventListener('click', function() {
+                if (this.classList.contains('disabled')) return;
+
+                const question = this.closest('.question');
+                const questionNum = question.dataset.question;
+                const choices = question.querySelectorAll('.choice');
+                const selectedAnswer = this.dataset.answer;
+
+                choices.forEach(c => {
+                    c.classList.remove('selected');
+                    c.classList.add('disabled');
+                });
+
+                this.classList.add('selected');
+
+                if (userAnswers[questionNum] === undefined) {
+                    answeredCount++;
+                }
+                userAnswers[questionNum] = selectedAnswer;
+
+                setTimeout(() => {
+                    if (selectedAnswer === correctAnswers[questionNum]) {
+                        this.classList.remove('selected');
+                        this.classList.add('correct');
+                    } else {
+                        this.classList.remove('selected');
+                        this.classList.add('incorrect');
+                        choices.forEach(c => {
+                            if (c.dataset.answer === correctAnswers[questionNum]) {
+                                c.classList.add('correct');
+                            }
+                        });
+                    }
+
+                    updateProgress();
+
+                    if (answeredCount === totalQuestions) {
+                        setTimeout(showScore, 500);
+                    }
+                }, 300);
+            });
+        });
+
+        function updateProgress() {
+            const progressPercent = (answeredCount / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+        }
+
+        function showScore() {
+            let score = 0;
+            for (let q in correctAnswers) {
+                if (userAnswers[q] === correctAnswers[q]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('scoreDisplay').textContent = score + '/' + totalQuestions;
+            
+            let message = '';
+            if (score === totalQuestions) {
+                message = '🌟 Perfect! You got them all right!';
+            } else if (score >= totalQuestions * 0.75) {
+                message = '👏 Excellent work! Keep it up!';
+            } else if (score >= totalQuestions * 0.5) {
+                message = '👍 Good job! Try reading more carefully next time.';
+            } else {
+                message = '💪 Keep practicing! You will do better next time!';
+            }
+            
+            document.getElementById('scoreMessage').textContent = message;
+            document.getElementById('scoreSection').classList.add('show');
+        }
+
+        function restartQuiz() {
+            userAnswers = {};
+            answeredCount = 0;
+            
+            document.querySelectorAll('.choice').forEach(choice => {
+                choice.classList.remove('selected', 'correct', 'incorrect', 'disabled');
+            });
+            
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('scoreSection').classList.remove('show');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1024) {
+                    const isClickInsideNav = e.target.closest('.main-nav');
+                    if (!isClickInsideNav && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.textContent = '☰';
+                    }
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 1024) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

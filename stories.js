@@ -22,6 +22,16 @@ const storiesData = [
             { day: "Thursday", title: "The Rainbow Bridge", icon: "🌈", file: "cold-reads-week2-thursday.html" },
             { day: "Friday", title: "The Treasure Hunt", icon: "🗺️", file: "cold-reads-week2-friday.html" }
         ]
+    },
+    {
+        weekStart: "2025-10-18",  // Week of Oct 20-24
+        stories: [
+            { day: "Monday", title: "How Butterflies Grow", icon: "🦋", file: "cold-reads-week3-monday.html" },
+            { day: "Tuesday", title: "The Legend of the Rainbow", icon: "🌈", file: "cold-reads-week3-tuesday.html" },
+            { day: "Wednesday", title: "Amazing Animal Adaptations", icon: "🐫", file: "cold-reads-week3-wednesday.html" },
+            { day: "Thursday", title: "King Midas and the Golden Touch", icon: "👑", file: "cold-reads-week3-thursday.html" },
+            { day: "Friday", title: "The Life of a Bee", icon: "🐝", file: "cold-reads-week3-friday.html" }
+        ]
     }
 ];
 
@@ -41,8 +51,8 @@ function getCurrentWeekStories() {
         }
     }
     
-    // If no matching week found, return the first week as default
-    return storiesData[0];
+    // If no matching week found, return the last (most recent) week as default
+    return storiesData[storiesData.length - 1];
 }
 
 // Function to update the daily reading buttons
