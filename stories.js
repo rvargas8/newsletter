@@ -40,18 +40,24 @@ function getCurrentWeekStories() {
     const today = new Date();
     today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
     
+    console.log('Today:', today.toDateString(), 'Looking for matching week...');
+    
     // Find the week that matches the current date
     for (let i = 0; i < storiesData.length; i++) {
         const weekStart = new Date(storiesData[i].weekStart);
         const weekEnd = new Date(weekStart);
         weekEnd.setDate(weekEnd.getDate() + 6); // Add 6 days to get the end of the week
         
+        console.log(`Week ${i+1}: ${weekStart.toDateString()} to ${weekEnd.toDateString()}`);
+        
         if (today >= weekStart && today <= weekEnd) {
+            console.log('✓ Found matching week!', storiesData[i].stories[0].title);
             return storiesData[i];
         }
     }
     
     // If no matching week found, return the last (most recent) week as default
+    console.log('No match found, using most recent week');
     return storiesData[storiesData.length - 1];
 }
 
