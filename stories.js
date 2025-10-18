@@ -28,7 +28,7 @@ const storiesData = [
         stories: [
             { day: "Monday", title: "How Butterflies Grow", icon: "🦋", file: "cold-reads-week3-monday.html" },
             { day: "Tuesday", title: "The Legend of the Rainbow", icon: "🌈", file: "cold-reads-week3-tuesday.html" },
-            { day: "Wednesday", title: "Amazing Animal Adaptations", icon: "🐫", file: "cold-reads-week3-wednesday.html" },
+            { day: "Wednesday", title: "The New Student", icon: "🎒", file: "cold-reads-week3-wednesday.html" },
             { day: "Thursday", title: "King Midas and the Golden Touch", icon: "👑", file: "cold-reads-week3-thursday.html" },
             { day: "Friday", title: "The Life of a Bee", icon: "🐝", file: "cold-reads-week3-friday.html" }
         ]
