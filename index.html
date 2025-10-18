@@ -229,17 +229,6 @@
             animation: ice-shimmer 3s linear infinite;
         }
 
-        .cold-reads-btn::after {
-            content: '❄️';
-            position: absolute;
-            right: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-            opacity: 0.8;
-            animation: snowflake-spin 4s linear infinite;
-        }
-
         @keyframes frozen-pulse {
             0%, 100% {
                 box-shadow: 
@@ -261,15 +250,6 @@
             }
             100% {
                 transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-
-        @keyframes snowflake-spin {
-            0%, 100% {
-                transform: translateY(-50%) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-50%) rotate(180deg);
             }
         }
 
