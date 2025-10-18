@@ -197,6 +197,92 @@
             font-weight: 700;
         }
 
+        /* Icy Frozen Cold Reads Button */
+        .cold-reads-btn {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006b8f 100%);
+            color: white !important;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 20px rgba(0, 212, 255, 0.6),
+                0 0 40px rgba(0, 153, 204, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: frozen-pulse 3s ease-in-out infinite;
+        }
+
+        .cold-reads-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: ice-shimmer 3s linear infinite;
+        }
+
+        .cold-reads-btn::after {
+            content: '❄️';
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            opacity: 0.8;
+            animation: snowflake-spin 4s linear infinite;
+        }
+
+        @keyframes frozen-pulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 20px rgba(0, 212, 255, 0.6),
+                    0 0 40px rgba(0, 153, 204, 0.4),
+                    inset 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 0 30px rgba(0, 212, 255, 0.8),
+                    0 0 60px rgba(0, 153, 204, 0.6),
+                    inset 0 0 30px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes ice-shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes snowflake-spin {
+            0%, 100% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+
+        .cold-reads-btn:hover {
+            background: linear-gradient(135deg, #00e5ff 0%, #00b8e6 50%, #0080a8 100%);
+            color: white !important;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 
+                0 0 35px rgba(0, 229, 255, 0.9),
+                0 0 70px rgba(0, 184, 230, 0.7),
+                inset 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
         /* Dropdown menu */
         .dropdown {
             position: relative;
@@ -1372,7 +1458,7 @@
                 </li>
                 
                 <li class="nav-item dropdown" id="readingDropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
+                    <a href="#" class="nav-link dropdown-toggle cold-reads-btn">
                         <span>📚</span>
                         <span>Cold Read Practice</span>
                         <span>▾</span>
