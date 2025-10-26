@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle of the Books - 3rd Grade Reading Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #FFD93D;
+            --coral: #FF6B6B;
+            --teal: #4ECDC4;
+            --navy: #2C3E50;
+            --warm-white: #FFFEF7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+        .container {
+            max-width: 56rem;
+            margin: 0 auto;
+            background: var(--warm-white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: 24px;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.05),
+                0 8px 16px rgba(0,0,0,0.05),
+                0 16px 32px rgba(0,0,0,0.05);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--teal);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--coral);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 4px solid var(--primary-yellow);
+        }
+
+        .header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 6px solid #2196F3;
+        }
+
+        .intro-box h2 {
+            color: #1976D2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .intro-box p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 2px solid #E0E0E0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .section-box h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.75rem;
+            color: var(--coral);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-yellow);
+        }
+
+        .section-box h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .section-box ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-box ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .section-box ul li strong {
+            color: var(--coral);
+        }
+
+        .book-list {
+            background: linear-gradient(135deg, #FFF9C4 0%, #F8BBD0 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .book-list h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .book-item {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--teal);
+            transition: all 0.2s ease;
+        }
+
+        .book-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--primary-yellow);
+            border-radius: 16px;
+        }
+
+        .footer p {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--coral);
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .section-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Newsletter</a>
+        
+        <div class="header">
+            <h1>Battle of the Books</h1>
+            <div class="subtitle">📚 Get Ready for an Exciting Reading Challenge! 📚</div>
+        </div>
+
+        <div class="intro-box">
+            <h2>🏆 Welcome to Battle of the Books!</h2>
+            <p>Our class will be participating in our very own Battle of the Books! This fun reading challenge encourages students to read as many books as possible from the list below for a chance to compete against other classes and win a grand prize.</p>
+            <p><strong>📅 The Final Battle Date:</strong> The date of the final Battle of the Books will be announced at a later date but should be around Spring Break, giving students ample time to read as many books as they can.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>⚙️ How It Works</h3>
+            <ul>
+                <li>Students will read books from the list below <strong>(no need to read them in order)</strong>.</li>
+                <li>After finishing each book, students will take a <strong>10-question quiz</strong> to test their knowledge.</li>
+                <li>If they pass, it will be marked off under their name, and they can move on to the next book.</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h3>📚 Book Donations Needed</h3>
+            <p>Since we don't have these books in the classroom, they will be added to our Amazon wish list. If any parents are interested in donating a book to our class library, it would be greatly appreciated! This will help ensure all students have access to the books, especially those who may not have the chance to read them at home.</p>
+        </div>
+
+        <div class="section-box">
+            <h3>📌 Important Reminders</h3>
+            <ul>
+                <li>Students are encouraged to bring the book they are currently reading to class.</li>
+                <li>Please make sure to <strong>write your child's name on the cover</strong> to avoid mix-ups with other students' books or books from the class library.</li>
+                <li>We will begin the Battle of the Books next Monday.</li>
+                <li>Students will have time during independent reading to enjoy these books, which will also encourage more reading at home.</li>
+            </ul>
+        </div>
+
+        <div class="book-list">
+            <h3>📖 Battle of the Books - Book List</h3>
+            
+            <div class="book-item">
+                <strong>The Adventures of Invisible Boy</strong> by Doogie Horner
+            </div>
+            
+            <div class="book-item">
+                <strong>Always, Clementine</strong> by Carlie Sorosiak
+            </div>
+            
+            <div class="book-item">
+                <strong>The Amazon</strong> by Roland Smith
+            </div>
+            
+            <div class="book-item">
+                <strong>Battle for the Park</strong> by H.D. Hunter
+            </div>
+            
+            <div class="book-item">
+                <strong>Benny Ramirez and the Nearly Departed</strong> by Jose Pablo Iriarte
+            </div>
+            
+            <div class="book-item">
+                <strong>The Callers</strong> by Kiah Thomas
+            </div>
+            
+            <div class="book-item">
+                <strong>Clementine Fox and the Great Island Adventure</strong> by Leigh Luna
+            </div>
+            
+            <div class="book-item">
+                <strong>Dogtown</strong> by Katherine Applegate and Gennifer Choldenko
+            </div>
+            
+            <div class="book-item">
+                <strong>The Guardian Test</strong> by Christina Soontornvat
+            </div>
+            
+            <div class="book-item">
+                <strong>Lightningborn</strong> by Julie Kagawa
+            </div>
+            
+            <div class="book-item">
+                <strong>The Lost Library</strong> by Rebecca Stead and Wendy Mass
+            </div>
+            
+            <div class="book-item">
+                <strong>The Mystery of Locked Rooms</strong> by Lindsay Currie
+            </div>
+            
+            <div class="book-item">
+                <strong>Peril at Price Manor</strong> by Laura Parnum
+            </div>
+            
+            <div class="book-item">
+                <strong>Trex</strong> by Christyne Morrell
+            </div>
+            
+            <div class="book-item">
+                <strong>The Wild Journey of Juniper Berry</strong> by Chad Morris and Shelly Brown
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>❓ Questions?</strong></p>
+            <p>Feel free to message <a href="mailto:rvargas@charterk12.com">Mrs. Vargas</a></p>
+            <p style="margin-top: 1rem;"><strong>Let's make reading fun and exciting! 📚✨</strong></p>
+        </div>
+    </div>
+</body>
+</html>
+
