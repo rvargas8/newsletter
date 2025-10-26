@@ -32,6 +32,16 @@ const storiesData = [
             { day: "Thursday", title: "King Midas and the Golden Touch", icon: "👑", file: "cold-reads-week3-thursday.html" },
             { day: "Friday", title: "The Life of a Bee", icon: "🐝", file: "cold-reads-week3-friday.html" }
         ]
+    },
+    {
+        weekStart: "2025-10-25",  // Week of Oct 27-31
+        stories: [
+            { day: "Monday", title: "The Amazing Octopus", icon: "🐙", file: "cold-reads-week4-monday.html" },
+            { day: "Tuesday", title: "The School Science Project", icon: "🔬", file: "cold-reads-week4-tuesday.html" },
+            { day: "Wednesday", title: "What is Weather?", icon: "🌤️", file: "cold-reads-week4-wednesday.html" },
+            { day: "Thursday", title: "Pandora's Box", icon: "📦", file: "cold-reads-week4-thursday.html" },
+            { day: "Friday", title: "How Plants Make Food", icon: "🌱", file: "cold-reads-week4-friday.html" }
+        ]
     }
 ];
 
