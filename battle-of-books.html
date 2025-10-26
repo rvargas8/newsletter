@@ -193,10 +193,43 @@
             margin-bottom: 0.5rem;
         }
 
-        .footer a {
+            .footer a {
             color: var(--coral);
             text-decoration: underline;
             font-weight: 700;
+        }
+
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--coral);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 1rem 0.5rem 0.5rem 0;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .action-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+
+        .action-button.amazon {
+            background: var(--teal);
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        .action-button.amazon:hover {
+            background: #39b9a8;
+            box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -237,6 +270,7 @@
         <div class="section-box">
             <h3>📚 Book Donations Needed</h3>
             <p>Since we don't have these books in the classroom, they will be added to our Amazon wish list. If any parents are interested in donating a book to our class library, it would be greatly appreciated! This will help ensure all students have access to the books, especially those who may not have the chance to read them at home.</p>
+            <a href="https://www.amazon.com/hz/wishlist/ls/1SEGS5TBOBJ1B?ref_=wl_share" target="_blank" class="action-button amazon">🛒 View Amazon Wishlist</a>
         </div>
 
         <div class="section-box">

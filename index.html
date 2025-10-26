@@ -697,6 +697,39 @@
             margin-bottom: 0;
         }
 
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--coral);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s var(--reading-time);
+            border: none;
+        }
+
+        .action-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+
+        .action-button.amazon {
+            background: var(--teal);
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        .action-button.amazon:hover {
+            background: #39b9a8;
+            box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
+        }
+
         /* Grid with clear gutters - easier to scan */
         .two-column {
             display: grid;
@@ -1540,8 +1573,11 @@
                 <li><strong>Thursday:</strong> Put a cap on drugs by wearing a hat</li>
                 <li><strong>Friday:</strong> Fall Spirit Day! Wear fall colors or school spirit gear</li>
             </ul>
-            <p>To wrap up the week, we'll also be celebrating the season with a Fall Party on Friday, October 31st! We're excited to make this a fun and festive event for the Vargas PM class. We'll need your help to make it happen, though! <a href="https://www.signupgenius.com/go/70A084FAAA62EA3F85-59944948-fall#/" target="_blank" style="color: #FF6B6B; text-decoration: underline; font-weight: 600;">📝 Sign Up Here</a></p>
-            <p>Let's make it a week full of spirit, positivity, and celebration!</p>
+            <p>To wrap up the week, we'll also be celebrating the season with a Fall Party on Friday, October 31st! We're excited to make this a fun and festive event for the Vargas PM class. We'll need your help to make it happen, though!</p>
+            <div style="margin-top: 1rem;">
+                <a href="https://www.signupgenius.com/go/70A084FAAA62EA3F85-59944948-fall#/" target="_blank" class="action-button">📝 Sign Up for Fall Party</a>
+            </div>
+            <p style="margin-top: 1rem;">Let's make it a week full of spirit, positivity, and celebration!</p>
         </div>
 
         <div class="two-column">
