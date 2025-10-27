@@ -730,6 +730,104 @@
             box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
         }
 
+        .newsletter-signup {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 3px solid var(--primary-yellow);
+            text-align: center;
+        }
+
+        .newsletter-signup h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-signup p {
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            max-width: 50ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .signup-form input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .signup-form input:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        .signup-form button {
+            padding: 1rem 2rem;
+            background: var(--coral);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .signup-form button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+
+        .signup-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .signup-message.success {
+            background: #E8F5E8;
+            color: #2E7D32;
+            border: 2px solid #4CAF50;
+            display: block;
+        }
+
+        .signup-message.error {
+            background: #FFEBEE;
+            color: #C62828;
+            border: 2px solid #F44336;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .signup-form {
+                flex-direction: column;
+            }
+
+            .signup-form input,
+            .signup-form button {
+                width: 100%;
+            }
+        }
+
         /* Grid with clear gutters - easier to scan */
         .two-column {
             display: grid;
@@ -1575,6 +1673,7 @@
             </ul>
             <p>Let's make it a week full of spirit, positivity, and celebration!</p>
         </div>
+
 
         <!-- COMMENTED OUT - Fall Party & Sign Up Genius
         <div class="intro-box">
