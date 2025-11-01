@@ -197,72 +197,6 @@
             font-weight: 700;
         }
 
-        /* Icy Frozen Cold Reads Button */
-        .cold-reads-btn {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006b8f 100%);
-            color: white !important;
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 0 20px rgba(0, 212, 255, 0.6),
-                0 0 40px rgba(0, 153, 204, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            animation: frozen-pulse 3s ease-in-out infinite;
-        }
-
-        .cold-reads-btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            transform: rotate(45deg);
-            animation: ice-shimmer 3s linear infinite;
-        }
-
-        @keyframes frozen-pulse {
-            0%, 100% {
-                box-shadow: 
-                    0 0 20px rgba(0, 212, 255, 0.6),
-                    0 0 40px rgba(0, 153, 204, 0.4),
-                    inset 0 0 20px rgba(255, 255, 255, 0.3);
-            }
-            50% {
-                box-shadow: 
-                    0 0 30px rgba(0, 212, 255, 0.8),
-                    0 0 60px rgba(0, 153, 204, 0.6),
-                    inset 0 0 30px rgba(255, 255, 255, 0.5);
-            }
-        }
-
-        @keyframes ice-shimmer {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-
-        .cold-reads-btn:hover {
-            background: linear-gradient(135deg, #00e5ff 0%, #00b8e6 50%, #0080a8 100%);
-            color: white !important;
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 
-                0 0 35px rgba(0, 229, 255, 0.9),
-                0 0 70px rgba(0, 184, 230, 0.7),
-                inset 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
         /* Dropdown menu */
         .dropdown {
             position: relative;
@@ -695,137 +629,6 @@
 
         .intro-box p:last-child {
             margin-bottom: 0;
-        }
-
-        .action-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            background: var(--coral);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            margin: 0.5rem 0.5rem 0.5rem 0;
-            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
-            transition: all 0.3s var(--reading-time);
-            border: none;
-        }
-
-        .action-button:hover {
-            background: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
-        }
-
-        .action-button.amazon {
-            background: var(--teal);
-            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
-        }
-
-        .action-button.amazon:hover {
-            background: #39b9a8;
-            box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
-        }
-
-        .newsletter-signup {
-            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 3rem 0;
-            border: 3px solid var(--primary-yellow);
-            text-align: center;
-        }
-
-        .newsletter-signup h3 {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: 1.5rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-signup p {
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-            max-width: 50ch;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .signup-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .signup-form input {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid #E0E0E0;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .signup-form input:focus {
-            outline: none;
-            border-color: var(--teal);
-            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-        }
-
-        .signup-form button {
-            padding: 1rem 2rem;
-            background: var(--coral);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .signup-form button:hover {
-            background: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
-        }
-
-        .signup-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 12px;
-            font-weight: 600;
-            display: none;
-        }
-
-        .signup-message.success {
-            background: #E8F5E8;
-            color: #2E7D32;
-            border: 2px solid #4CAF50;
-            display: block;
-        }
-
-        .signup-message.error {
-            background: #FFEBEE;
-            color: #C62828;
-            border: 2px solid #F44336;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .signup-form {
-                flex-direction: column;
-            }
-
-            .signup-form input,
-            .signup-form button {
-                width: 100%;
-            }
         }
 
         /* Grid with clear gutters - easier to scan */
@@ -1569,33 +1372,10 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="enrichment-packets.html" class="nav-link">
-                        <span>➗</span>
-                        <span>Math Packets</span>
-                    </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="battle-of-books.html" class="nav-link">
+                    <a href="cold-reads-nov-archive.html" class="nav-link">
                         <span>📚</span>
-                        <span>Battle of Books</span>
+                        <span>Cold Reads</span>
                     </a>
-                </li>
-                
-                <li class="nav-item dropdown" id="readingDropdown">
-                    <a href="#" class="nav-link dropdown-toggle cold-reads-btn">
-                        <span>📖</span>
-                        <span>Cold Read Practice</span>
-                        <span>▾</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-header">This Week's Stories</div>
-                        <a href="cold-reads-week4-monday.html" class="dropdown-item">🐙 Monday - The Amazing Octopus</a>
-                        <a href="cold-reads-week4-tuesday.html" class="dropdown-item">🔬 Tuesday - The School Science Project</a>
-                        <a href="cold-reads-week4-wednesday.html" class="dropdown-item">🌤️ Wednesday - What is Weather?</a>
-                        <a href="cold-reads-week4-thursday.html" class="dropdown-item">📦 Thursday - Pandora's Box</a>
-                        <a href="cold-reads-week4-friday.html" class="dropdown-item">🌱 Friday - How Plants Make Food</a>
-                    </div>
                 </li>
                 
                 <li class="nav-item">
@@ -1658,35 +1438,14 @@
         </div>
 
         <div class="date-banner">
-            <h2>NOVEMBER 3-7, 2025</h2>
+            <h2>October 13–17, 2025</h2>
         </div>
 
         <div class="intro-box">
-            <h3>Important Reminder: Conference Night</h3>
-            <p>Hello Families, I can't believe we're already three months into the school year—time is flying! Thank you for your continued support in helping your child succeed. Please keep the momentum going by checking and signing your child's behavior calendar each night and encouraging regular practice at home. Your involvement truly makes all the difference!</p>
-            <p><strong>📣 Important Reminder:</strong> Thursday, November 6th is Conference Night. Conferences are by appointment only and will be held from 4:30–7:00 PM. This evening is reserved for parents who have a scheduled conference with the teacher.</p>
-            <p>Thank you for your continued partnership and support! 💙</p>
+            <h3>Quarter 2 Begins!</h3>
+            <p>Last week marked the end of Quarter 1, and this week we begin Quarter 2! We're looking forward to another great quarter of learning and growth.</p>
+            <p>Quarter 2 brings fresh opportunities for discovery and success! We're committed to partnering with you to ensure your child reaches new heights. With your continued support and our dedicated team, there's no limit to what we can accomplish together this quarter!</p>
         </div>
-
-
-        <!-- COMMENTED OUT - Fall Party & Sign Up Genius
-        <div class="intro-box">
-            <h3>Fall Party & Red Ribbon Spirit Week!</h3>
-            <p>This week is Red Ribbon Week, a special week focused on promoting drug-free, healthy living! Each day will have a fun theme to show our school spirit and support for making positive choices. Uniform bottoms are required Mon-Thurs.</p>
-            <ul>
-                <li><strong>Monday:</strong> Wear a red shirt to kick off Red Ribbon Week</li>
-                <li><strong>Tuesday:</strong> Shade out drugs with your favorite sunglasses</li>
-                <li><strong>Wednesday:</strong> Sock it to drugs with silly socks</li>
-                <li><strong>Thursday:</strong> Put a cap on drugs by wearing a hat</li>
-                <li><strong>Friday:</strong> Fall Spirit Day! Wear fall colors or school spirit gear</li>
-            </ul>
-            <p>To wrap up the week, we'll also be celebrating the season with a Fall Party on Friday, October 31st! We're excited to make this a fun and festive event for the Vargas PM class. We'll need your help to make it happen, though!</p>
-            <div style="margin-top: 1rem;">
-                <a href="https://www.signupgenius.com/go/70A084FAAA62EA3F85-59944948-fall#/" target="_blank" class="action-button">📝 Sign Up for Fall Party</a>
-            </div>
-            <p style="margin-top: 1rem;">Let's make it a week full of spirit, positivity, and celebration!</p>
-        </div>
-        -->
 
         <div class="two-column">
             <div class="section-box reminders-section" data-icon="📌">
@@ -1696,15 +1455,16 @@
                     <li>Please check and sign your child's behavior chart daily.</li>
                     <li>All students should be practicing their IXL Skill Plans weekly.</li>
                     <li>Please make sure your child has headphones for class.</li>
+                    <li>Homework is due on Friday.</li>
                 </ul>
             </div>
 
             <div class="section-box events-section" data-icon="📅">
                 <h3>Upcoming Events</h3>
                 <ul>
-                    <li><strong>11/6</strong> - Conference Night 4:30-7pm (scheduled appts only)</li>
-                    <li><strong>11/11</strong> - No School (Veterans Day)</li>
-                    <li><strong>11/24-28</strong> - No School (Fall Break)</li>
+                    <li><strong>10/18</strong> - Trunk or Treat, Haunted Hallway, Fall Movie Night</li>
+                    <li><strong>10/27</strong> - Quarter 1 Report Cards Emailed</li>
+                    <li><strong>10/31</strong> - Fall Themed Dress Down Day! (no costumes, ripped jeans, spandex, or pajamas)</li>
                     <li><strong>Every Fri</strong> - Students may wear a spirit shirt. Uniform bottoms required (exception for PTSO jeans pass)</li>
                 </ul>
             </div>
@@ -1717,18 +1477,16 @@
                 <div class="subsection">
                     <h4>Math</h4>
                     <ul>
-                        <li>Topic 5 Test (Mon)</li>
-                        <li>Read and write numbers in the thousands.</li>
-                        <li>Understand place value relationships.</li>
-                        <li>Plot, order, and compare numbers.</li>
-                        <li>Round to the nearest 10 or 100.</li>
+                        <li>Topic 4 Test on Tuesday</li>
+                        <li>Draw points, lines, and line segments</li>
+                        <li>Classify figures</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <h4>Science</h4>
                     <ul>
-                        <li>Identify different forms of energy.</li>
+                        <li>Describe the changing of liquids into heating and cooling.</li>
                     </ul>
                 </div>
             </div>
@@ -1739,50 +1497,84 @@
                 <div class="subsection">
                     <h4>Reading</h4>
                     <ul>
-                        <li>Explain the author's purpose for writing a text.</li>
-                        <li>Identify and interpret figurative language.</li>
+                        <li>Analyze structures of Informational Texts</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <h4>Writing</h4>
                     <ul>
-                        <li>Review how to properly write a sentence.</li>
-                        <li>Spelling Focus: Contractions</li>
+                        <li>Write a conclusion paragraph.</li>
+                        <li>Spelling Focus: r-controlled vowels</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <h4>Social Studies</h4>
                     <ul>
-                        <li>Understand the lives of early Spanish explorers and settlers in North America.</li>
+                        <li>Describe how people affect the environment</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="spelling-section">
-            <h3>Spelling List 11</h3>
+            <h3>Spelling List </h3>
             <div class="spelling-grid">
-                <div class="spelling-word" data-word="I've">1. I've</div>
-                <div class="spelling-word" data-word="let's">2. let's</div>
-                <div class="spelling-word" data-word="can't">3. can't</div>
-                <div class="spelling-word" data-word="aren't">4. aren't</div>
-                <div class="spelling-word" data-word="didn't">5. didn't</div>
-                <div class="spelling-word" data-word="won't">6. won't</div>
-                <div class="spelling-word" data-word="couldn't">7. couldn't</div>
-                <div class="spelling-word" data-word="wouldn't">8. wouldn't</div>
-                <div class="spelling-word" data-word="you've">9. you've</div>
-                <div class="spelling-word" data-word="doesn't">10. doesn't</div>
+                <div class="spelling-word" data-word="morning">1. morning</div>
+                <div class="spelling-word" data-word="format">2. format</div>
+                <div class="spelling-word" data-word="explore">3. explore</div>
+                <div class="spelling-word" data-word="cardboard">4. cardboard</div>
+                <div class="spelling-word" data-word="soared">5. soared</div>
+                <div class="spelling-word" data-word="darkness">6. darkness</div>
+                <div class="spelling-word" data-word="alarm">7. alarm</div>
+                <div class="spelling-word" data-word="adore">8. adore</div>
+                <div class="spelling-word" data-word="target">9. target</div>
+                <div class="spelling-word" data-word="absorb">10. absorb</div>
             </div>
 
             <div class="challenge-words">
                 <h4>⚡ Challenge Words! ⚡</h4>
                 <div class="words">
-                    <span class="word spelling-word" data-word="would've">11. would've</span>
-                    <span class="word spelling-word" data-word="should've">12. should've</span>
-                    <span class="word spelling-word" data-word="o'clock">13. o'clock</span>
+                    <span class="word spelling-word" data-word="bargain">11. bargain</span>
+                    <span class="word spelling-word" data-word="argument">12. argument</span>
+                    <span class="word spelling-word" data-word="departure">13. departure</span>
                 </div>
+            </div>
+        </div>
+
+        <div class="cold-reads-section">
+            <h2 class="cold-reads-title">❄️ Cold Reads Practice</h2>
+            <p class="cold-reads-description">
+                Practice your reading comprehension skills with interactive questions and get instant feedback on your answers. Choose a day to get started!
+            </p>
+            
+            <div class="daily-reading-buttons">
+                <a href="cold-reads-week2-monday.html" class="daily-btn monday">
+                    <span class="day-icon">🌟</span>
+                    <span class="day-name">Monday</span>
+                    <span class="story-title">The Mysterious Cave</span>
+                </a>
+                <a href="cold-reads-week2-tuesday.html" class="daily-btn tuesday">
+                    <span class="day-icon">✈️</span>
+                    <span class="day-name">Tuesday</span>
+                    <span class="story-title">The Flying Machine</span>
+                </a>
+                <a href="cold-reads-week2-wednesday.html" class="daily-btn wednesday">
+                    <span class="day-icon">🐶</span>
+                    <span class="day-name">Wednesday</span>
+                    <span class="story-title">The Lost Puppy</span>
+                </a>
+                <a href="cold-reads-week2-thursday.html" class="daily-btn thursday">
+                    <span class="day-icon">🌈</span>
+                    <span class="day-name">Thursday</span>
+                    <span class="story-title">The Rainbow Bridge</span>
+                </a>
+                <a href="cold-reads-week2-friday.html" class="daily-btn friday">
+                    <span class="day-icon">🏴‍☠️</span>
+                    <span class="day-name">Friday</span>
+                    <span class="story-title">The Treasure Hunt</span>
+                </a>
             </div>
         </div>
 
@@ -1792,6 +1584,7 @@
         </div>
     </div>
 
+    <script src="stories.js"></script>
     <script>
         // Sticky date banner effect
         const dateBanner = document.querySelector('.date-banner');
