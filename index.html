@@ -482,14 +482,14 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
             padding: 2rem 1rem;
-            line-height: 1.75;
+            line-height: 1.5; /* Bringhurst: Perfect fifth ratio (1.5) */
             color: var(--navy);
             font-size: 16px;
         }
 
-        /* Golden ratio for comfortable reading width */
+        /* Golden ratio for comfortable reading width - Bringhurst recommends 45-75 characters */
         .container {
-            max-width: 52rem;
+            max-width: 75ch; /* Increased from 52rem to optimal character measure */
             margin: 0 auto;
             background: var(--warm-white);
             padding: clamp(2rem, 5vw, 4rem);
@@ -623,7 +623,7 @@
         }
 
         .intro-box p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5em; /* Bringhurst: 1.5em spacing creates rhythm */
             max-width: 65ch; /* Optimal reading width */
         }
 
@@ -636,7 +636,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin: 3rem 0; /* Bringhurst: Consistent 24px baseline grid spacing */
         }
 
         /* Each section is clearly bounded with icons */
@@ -691,7 +691,7 @@
             text-transform: uppercase;
             margin-bottom: 1.25rem;
             font-weight: 900;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em; /* Bringhurst: Increased for better uppercase readability */
             padding-bottom: 0.75rem;
             border-bottom: 2px solid currentColor;
         }
@@ -706,7 +706,7 @@
             margin-bottom: 0.875rem;
             padding-left: 1.75rem;
             position: relative;
-            line-height: 1.6;
+            line-height: 1.5; /* Bringhurst: Consistent with body line-height */
         }
 
         /* Custom bullet as visual marker */
