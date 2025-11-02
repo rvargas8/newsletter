@@ -1,0 +1,13 @@
+# robots.txt for ramsroundup.com
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /*.docx$
+Disallow: /*.pdf$
+
+# Crawl-delay to be respectful
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://www.ramsroundup.com/sitemap.xml
+

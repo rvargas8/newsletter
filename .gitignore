@@ -1,1 +1,16 @@
 *.docx
+*.pdf
+*.log
+.DS_Store
+*.swp
+*.swo
+*~
+.env
+.env.local
+node_modules/
+
+# Personal/business docs that shouldn't be in git
+**/Week *.pdf
+**/*private*
+**/*secret*
+
