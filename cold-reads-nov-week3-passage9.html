@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making a New Friend - 3rd Grade Cold Reads</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-yellow: #FFD93D; --coral: #FF6B6B; --teal: #4ECDC4; --navy: #2C3E50; --warm-white: #FFFEF7; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%); padding: 2rem 1rem; padding-top: 5rem; line-height: 1.6; color: var(--navy); }
+        .container { max-width: 52rem; margin: 0 auto; background: var(--warm-white); padding: clamp(2rem, 5vw, 3rem); border-radius: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 8px 16px rgba(0,0,0,0.05); }
+        .header { text-align: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 3px solid var(--primary-yellow); }
+        .header h1 { font-family: 'Fraunces', serif; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 900; color: var(--coral); text-transform: uppercase; }
+        .header .subtitle { font-size: 1.125rem; color: var(--navy); font-weight: 600; }
+        .directions { background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border-left: 6px solid #2196F3; }
+        .directions p { font-weight: 600; font-size: 1.05rem; }
+        .progress-bar { width: 100%; height: 8px; background: #E0E0E0; border-radius: 10px; margin-bottom: 2rem; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--primary-yellow)); width: 0%; transition: width 0.3s ease; }
+        .story-title { text-align: center; margin-bottom: 1.5rem; }
+        .story-title h2 { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: var(--navy); }
+        .story-title .subtitle { font-style: italic; color: #666; font-size: 1.125rem; }
+        .story-content { background: white; padding: 2rem; border-radius: 16px; border: 2px solid #E0E0E0; margin-bottom: 2rem; line-height: 1.8; }
+        .story-content p { margin-bottom: 1.25rem; text-align: justify; }
+        .line-numbers { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; }
+        .line-number { color: #999; font-size: 0.85rem; text-align: right; min-width: 30px; }
+        .questions-section { margin-top: 3rem; }
+        .question { background: white; padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 2px solid #E0E0E0; transition: all 0.2s ease; }
+        .question:hover { border-color: var(--teal); box-shadow: 0 4px 12px rgba(78, 205, 196, 0.2); }
+        .question-text { font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem; }
+        .question-number { display: inline-block; background: var(--teal); color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; margin-right: 0.5rem; }
+        .choices { margin-left: 2.5rem; }
+        .choice { margin-bottom: 0.75rem; padding: 0.75rem; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .choice:hover { background: #F5F5F5; border-color: var(--teal); }
+        .choice.selected { background: var(--teal); color: white; }
+        .choice.correct { background: #4CAF50; color: white; }
+        .choice.incorrect { background: #F44336; color: white; }
+        .choice.disabled { cursor: not-allowed; opacity: 0.7; }
+        .choice-letter { font-weight: 700; color: var(--coral); margin-right: 0.5rem; }
+        .choice.selected .choice-letter, .choice.correct .choice-letter, .choice.incorrect .choice-letter { color: white; }
+        .footer-note { text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--primary-yellow); border-radius: 16px; font-weight: 600; }
+        .score-section { background: linear-gradient(135deg, #E8F5E8 0%, #C8E6C9 100%); padding: 2rem; border-radius: 16px; margin-top: 2rem; text-align: center; border: 3px solid #4CAF50; display: none; }
+        .score-section.show { display: block; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .score-title { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: #2E7D32; margin-bottom: 1rem; }
+        .score-display { font-size: 3rem; font-weight: 900; color: #1B5E20; margin: 1rem 0; }
+        .score-message { font-size: 1.25rem; font-weight: 600; }
+        .restart-btn { background: var(--coral); color: white; border: none; padding: 1rem 2rem; border-radius: 25px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+        .restart-btn:hover { background: #ff5252; transform: scale(1.05); }
+        .back-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--teal); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3); margin-bottom: 2rem; }
+        .back-button:hover { background: var(--coral); transform: translateY(-2px); }
+        .button-group { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .print-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--coral); color: white; text-decoration: none; border: none; border-radius: 50px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3); font-family: inherit; }
+        .print-button:hover { background: #ff5252; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4); }
+        .print-button:active { transform: translateY(0); }
+        @media (max-width: 768px) {
+            body { padding: 1rem 0.5rem; font-size: 15px; }
+            .container { padding: 1.5rem; border-radius: 16px; }
+            .button-group { flex-direction: column; gap: 0.75rem; }
+            .back-button, .print-button { width: 100%; justify-content: center; font-size: 0.9rem; }
+            .header { margin-bottom: 1.5rem; padding-bottom: 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .header .subtitle { font-size: 1rem; }
+            .directions { padding: 1.25rem; margin-bottom: 1.5rem; }
+            .directions p { font-size: 1rem; }
+            .story-title { margin-bottom: 1rem; }
+            .story-title h2 { font-size: 1.25rem; }
+            .story-content { padding: 1.5rem; margin-bottom: 1.5rem; }
+            .story-content p { font-size: 1rem; line-height: 1.7; }
+            .line-numbers { gap: 0.75rem; }
+            .line-number { font-size: 0.75rem; min-width: 25px; }
+            .questions-section { margin-top: 2rem; }
+            .question { padding: 1.25rem; margin-bottom: 1.25rem; }
+            .question-text { font-size: 1rem; margin-bottom: 0.75rem; }
+            .question-number { width: 24px; height: 24px; line-height: 24px; font-size: 0.85rem; }
+            .choices { margin-left: 1.5rem; }
+            .choice { padding: 0.625rem; font-size: 0.95rem; }
+            .footer-note { padding: 1.25rem; font-size: 0.95rem; }
+            .score-section { padding: 1.5rem; }
+            .score-title { font-size: 1.5rem; }
+            .score-display { font-size: 2.5rem; }
+            .score-message { font-size: 1.1rem; }
+            .restart-btn { padding: 0.875rem 1.75rem; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 0.75rem 0.25rem; font-size: 14px; }
+            .container { padding: 1rem; border-radius: 12px; }
+            .button-group { gap: 0.5rem; margin-bottom: 1.5rem; }
+            .back-button, .print-button { padding: 0.625rem 1.25rem; font-size: 0.85rem; }
+            .header h1 { font-size: 1.25rem; }
+            .header .subtitle { font-size: 0.9rem; }
+            .directions { padding: 1rem; margin-bottom: 1.25rem; }
+            .directions p { font-size: 0.95rem; }
+            .story-title h2 { font-size: 1.125rem; }
+            .story-content { padding: 1.25rem; }
+            .story-content p { font-size: 0.95rem; margin-bottom: 1rem; }
+            .line-numbers { gap: 0.5rem; }
+            .choices { margin-left: 1rem; }
+            .choice { padding: 0.5rem; font-size: 0.9rem; }
+            .question { padding: 1rem; }
+            .question-text { font-size: 0.95rem; }
+            .footer-note { padding: 1rem; font-size: 0.9rem; }
+            .score-section { padding: 1.25rem; }
+            .score-title { font-size: 1.25rem; }
+            .score-display { font-size: 2rem; }
+            .score-message { font-size: 1rem; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .button-group, .back-button, .print-button, .progress-bar, .score-section, .footer-note { display: none !important; }
+            .container { box-shadow: none; max-width: 100%; padding: 1rem; border-radius: 0; }
+            .header { border-bottom: 2px solid #000; margin-bottom: 1.5rem; padding-bottom: 1rem; }
+            .header h1 { font-size: 1.5rem; color: #000; }
+            .header .subtitle { color: #333; font-size: 1rem; }
+            .directions { background: #f0f0f0; border-left: 4px solid #000; padding: 1rem; margin-bottom: 1.5rem; }
+            .story-title { margin-bottom: 1rem; }
+            .story-title h2 { font-size: 1.25rem; color: #000; }
+            .story-content { background: white; border: 1px solid #000; padding: 1.5rem; margin-bottom: 2rem; }
+            .story-content p { margin-bottom: 1rem; }
+            .line-numbers { gap: 0.5rem; }
+            .questions-section { margin-top: 2rem; page-break-inside: avoid; }
+            .question { background: white; border: 1px solid #000; padding: 1.25rem; margin-bottom: 1.5rem; page-break-inside: avoid; }
+            .question-text { font-size: 1rem; color: #000; margin-bottom: 0.75rem; }
+            .question-number { background: #000; color: white; }
+            .choices { margin-left: 2rem; }
+            .choice { margin-bottom: 0.5rem; padding: 0.5rem; border: 1px solid #ccc; cursor: default; }
+            .choice:hover { background: white; border-color: #ccc; }
+            .choice.selected, .choice.correct, .choice.incorrect { background: white; color: #000; border-color: #000; transform: none; }
+            .choice-letter { color: #000; font-weight: 700; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-group">
+            <a href="cold-reads-library.html" class="back-button">← Back to Cold Reads Library</a>
+            <button class="print-button" onclick="window.print()">🖨️ Print</button>
+        </div>
+        <div class="header">
+            <h1>Cold Reads Practice</h1>
+            <div class="subtitle">November 17-21, 2025</div>
+        </div>
+        <div class="directions">
+            <p>📖 Directions: Read the selection carefully and answer the questions that follow. Click on your answer choice for each question.</p>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="story-title">
+            <h2>Making a New Friend</h2>
+            <div class="subtitle">Realistic Fiction</div>
+        </div>
+        <div class="story-content">
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>It was the first day at a new school, and Lily felt nervous. She didn't know anyone and worried that the other kids already had their friends. Lily's family had just moved from across the country.</p>
+                <div class="line-number">25</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>During lunch, Lily sat alone at a table. She watched other kids laughing and talking together. A girl with curly hair and bright blue glasses noticed Lily sitting alone and came over.</p>
+                <div class="line-number">95</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>'Hi! I'm Zoe. Want to sit with us?' Zoe pointed to a table where several kids were eating. Lily hesitated for a moment, then smiled and nodded. She grabbed her lunch tray and followed Zoe.</p>
+                <div class="line-number">170</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Zoe introduced Lily to everyone at the table. They asked about where Lily had moved from and what she liked to do. Lily discovered that she and Zoe both loved art and reading the same book series. By the end of lunch, Lily felt like she belonged.</p>
+                <div class="line-number">259</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Lily learned that making friends wasn't as scary as it seemed. Sometimes all it took was one kind person to include you. Lily and Zoe became best friends, and Lily realized that new beginnings could be wonderful.</p>
+                <div class="line-number">338</div>
+            </div>
+        </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>"Don't worry," said Coach Martinez, smiling warmly. "Everyone starts somewhere. Just try your best and have fun." Maya nodded, but her stomach still felt like butterflies were dancing inside.</p>
+                <div class="line-number">54</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>During the first drill, Maya kicked the ball too hard and it flew way over the goal. Some kids giggled, and Maya's face turned red. She wanted to run away and hide. But then Sarah, one of the team's best players, came over.</p>
+                <div class="line-number">90</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>"Hey, that happened to me when I first started!" Sarah said. "Want me to show you how to aim better?" Maya looked up in surprise. She hadn't expected anyone to be so kind.</p>
+                <div class="line-number">125</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>Sarah spent the next ten minutes showing Maya how to position her foot and where to look when kicking. By the end of practice, Maya had made three goals. She wasn't the best player, but she was getting better. Most importantly, she had made a new friend.</p>
+                <div class="line-number">178</div>
+            </div>
+            <div class="line-numbers">
+                <div class="line-number"></div>
+                <p>As Maya walked off the field, she realized that trying something new wasn't so scary after all. With practice and a little help from friends, she could learn anything.</p>
+                <div class="line-number">211</div>
+            </div>
+        </div>
+        <div class="questions-section">
+            <div class="question" data-question="1">
+                <div class="question-text">
+                    <span class="question-number">1</span>
+                    How did Maya feel at the beginning of the story?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>Excited and confident</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>Nervous and worried</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>Angry and frustrated</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>Happy and carefree</div>
+                </div>
+            </div>
+            <div class="question" data-question="2">
+                <div class="question-text">
+                    <span class="question-number">2</span>
+                    What happened when Maya first tried to kick the ball?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>She scored a goal</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>The ball flew way over the goal</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>She tripped and fell</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>The ball went out of bounds</div>
+                </div>
+            </div>
+            <div class="question" data-question="3">
+                <div class="question-text">
+                    <span class="question-number">3</span>
+                    How did Sarah help Maya?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>She gave Maya new soccer cleats</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>She showed Maya how to position her foot and aim the ball</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>She let Maya use her soccer ball</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>She asked the coach to go easier on Maya</div>
+                </div>
+            </div>
+            <div class="question" data-question="4">
+                <div class="question-text">
+                    <span class="question-number">4</span>
+                    What did Maya learn by the end of the story?
+                </div>
+                <div class="choices">
+                    <div class="choice" data-answer="A"><span class="choice-letter">A</span>That she was not good at soccer</div>
+                    <div class="choice" data-answer="B"><span class="choice-letter">B</span>That trying something new isn't so scary with practice and help from friends</div>
+                    <div class="choice" data-answer="C"><span class="choice-letter">C</span>That soccer is too difficult to learn</div>
+                    <div class="choice" data-answer="D"><span class="choice-letter">D</span>That she should quit the team</div>
+                </div>
+            </div>
+        </div>
+        <div class="score-section" id="scoreSection">
+            <div class="score-title">🎉 Great Job!</div>
+            <div class="score-display" id="scoreDisplay">0/4</div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="restart-btn" onclick="restartQuiz()">🔄 Try Again</button>
+        </div>
+        <div class="footer-note">⭐ Remember to read carefully and look back at the story to find your answers!</div>
+    </div>
+    <script>
+        const correctAnswers = { 1: 'B', 2: 'A', 3: 'B', 4: 'B' };
+        let userAnswers = {}, answeredCount = 0;
+        const totalQuestions = 4;
+        document.querySelectorAll('.choice').forEach(choice => {
+            choice.addEventListener('click', function() {
+                if (this.classList.contains('disabled')) return;
+                const question = this.closest('.question'), questionNum = question.dataset.question;
+                const choices = question.querySelectorAll('.choice'), selectedAnswer = this.dataset.answer;
+                choices.forEach(c => { c.classList.remove('selected'); c.classList.add('disabled'); });
+                this.classList.add('selected');
+                if (userAnswers[questionNum] === undefined) answeredCount++;
+                userAnswers[questionNum] = selectedAnswer;
+                setTimeout(() => {
+                    if (selectedAnswer === correctAnswers[questionNum]) {
+                        this.classList.remove('selected'); this.classList.add('correct');
+                    } else {
+                        this.classList.remove('selected'); this.classList.add('incorrect');
+                        choices.forEach(c => { if (c.dataset.answer === correctAnswers[questionNum]) c.classList.add('correct'); });
+                    }
+                    document.getElementById('progressFill').style.width = (answeredCount / totalQuestions) * 100 + '%';
+                    if (answeredCount === totalQuestions) setTimeout(showScore, 500);
+                }, 300);
+            });
+        });
+        function showScore() {
+            let score = 0;
+            for (let q in correctAnswers) if (userAnswers[q] === correctAnswers[q]) score++;
+            document.getElementById('scoreDisplay').textContent = score + '/4';
+            let message = score === 4 ? '🌟 Perfect! You got them all right!' : score >= 3 ? '👏 Excellent work! Keep it up!' : score >= 2 ? '👍 Good job! Try reading more carefully next time.' : '💪 Keep practicing! You\'ll do better next time!';
+            document.getElementById('scoreMessage').textContent = message;
+            document.getElementById('scoreSection').classList.add('show');
+        }
+        function restartQuiz() {
+            userAnswers = {}; answeredCount = 0;
+            document.querySelectorAll('.choice').forEach(c => c.classList.remove('selected', 'correct', 'incorrect', 'disabled'));
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('scoreSection').classList.remove('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
