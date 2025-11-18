@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementary Family Newsletter - Weekly Guide | Florida B.E.S.T. Standards</title>
+    <meta name="description" content="Weekly newsletter to help elementary families navigate school life. Covers Kindergarten through 5th grade with Florida B.E.S.T. Standards, tips, and resources.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563EB;
+            --primary-green: #10B981;
+            --primary-orange: #F59E0B;
+            --primary-purple: #8B5CF6;
+            --primary-pink: #EC4899;
+            --primary-cyan: #06B6D4;
+            --neutral-dark: #1F2937;
+            --neutral-light: #F9FAFB;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .fade-in-delay {
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .fade-in-delay-2 {
+            animation: fadeInUp 0.6s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Scroll-to-top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            background: #1E40AF;
+        }
+
+        /* Full-width container */
+        .container {
+            max-width: 100%;
+            margin: 0;
+            background: white;
+            padding: 0;
+            min-height: 100vh;
+            box-shadow: none;
+        }
+
+        /* Section spacing - Scale.com style */
+        .section {
+            padding: 5rem clamp(2rem, 8vw, 6rem);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Hero Section - Scale.com style */
+        .hero-section {
+            text-align: center;
+            padding: 6rem clamp(2rem, 6vw, 4rem) 4rem;
+            margin: 0 auto;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .hero-section h1 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-section .subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            color: #1E40AF;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.2);
+            border-color: rgba(37, 99, 235, 0.5);
+        }
+
+
+        .florida-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1E40AF;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            box-shadow: 
+                0 4px 15px rgba(37, 99, 235, 0.1),
+                inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .florida-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 6px 20px rgba(37, 99, 235, 0.15),
+                inset 0 1px 3px rgba(255, 255, 255, 0.9);
+        }
+
+        .header h1 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem); /* Responsive scale */
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em; /* Tighter spacing for large serif headings */
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Grade Section Styling - Full width with internal constraints */
+        .grade-section {
+            margin-bottom: 3rem;
+            padding: 3rem clamp(2rem, 8vw, 6rem);
+            padding-bottom: 3rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            max-width: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grade-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .grade-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .grade-section:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Content wrapper for optimal reading width within full-width sections */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grade-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 2rem;
+        }
+
+        /* Background colors for each grade */
+        .grade-section.grade-k-section {
+            background: linear-gradient(135deg, #FCE7F3 0%, #F9A8D4 100%);
+        }
+
+        .grade-section.grade-1-section {
+            background: linear-gradient(135deg, #CFFAFE 0%, #A5F3FC 100%);
+        }
+
+        .grade-section.grade-2-section {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+        }
+
+        .grade-section.grade-3-section {
+            background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+        }
+
+        .grade-section.grade-4-section {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+        }
+
+        .grade-section.grade-5-section {
+            background: linear-gradient(135deg, #E9D5FF 0%, #DDD6FE 100%);
+        }
+
+        .grade-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .grade-section:hover .grade-header {
+            transform: translateX(5px);
+        }
+
+        .grade-number {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .grade-k { background: var(--primary-pink); }
+        .grade-1 { background: var(--primary-cyan); }
+        .grade-2 { background: var(--primary-green); }
+        .grade-3 { background: var(--primary-blue); }
+        .grade-4 { background: var(--primary-orange); }
+        .grade-5 { background: var(--primary-purple); }
+
+        .grade-title {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Content Typography */
+        .section-title {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* List styling with proper spacing */
+        .info-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .info-list li {
+            margin-bottom: 0.875rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.7; /* Slightly more line-height for list items */
+            color: var(--text-secondary);
+        }
+
+        .info-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--text-primary);
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .info-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Emphasis and hierarchy */
+        strong {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        /* Navigation Menu */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1E40AF 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 100;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: white;
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .nav-link:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .nav-link.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Weekly Date Banner - Scale.com style subtle banner */
+        .date-banner {
+            text-align: center;
+            padding: 2rem clamp(2rem, 8vw, 6rem);
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .date-banner-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .date-banner h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            color: #92400E;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* About Section - Scale.com style */
+        .highlights-section {
+            padding: 5rem clamp(2rem, 8vw, 6rem);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .highlight-card:hover::before {
+            left: 100%;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-left-width: 6px;
+        }
+
+        .highlight-card h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-card li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        /* Quick Links Section - Scale.com style */
+        .quick-links {
+            padding: 5rem clamp(2rem, 8vw, 6rem);
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+        }
+
+        .quick-links h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .link-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 50%;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 3px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            min-height: 150px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.6s ease;
+            transform: scale(0);
+        }
+
+        .link-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease;
+        }
+
+        .link-card:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .link-card:hover::after {
+            width: 200%;
+            height: 200%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-8px) scale(1.08) rotate(3deg);
+            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .link-card:hover .icon:not(:has(img)) {
+            transform: scale(1.2) rotate(-3deg);
+        }
+
+        .link-card .icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .link-card .icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .link-card:hover .icon img {
+            transform: scale(1.15);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+        }
+
+        .link-card .text {
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.3;
+            padding: 0 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 4rem clamp(2rem, 8vw, 6rem);
+            background: var(--neutral-dark);
+            color: white;
+            max-width: 100%;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .footer a {
+            color: #93C5FD;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .grade-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hero-section {
+                padding: 4rem 1.5rem 3rem;
+            }
+            
+            .section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .date-banner {
+                padding: 1.5rem;
+            }
+
+            .grade-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .grade-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+
+            .grade-title {
+                width: 100%;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .link-card {
+                min-height: 130px;
+                padding: 1.5rem 1rem;
+            }
+            
+            .link-card .icon {
+                font-size: 2.5rem;
+            }
+            
+            .link-card .text {
+                font-size: 0.85rem;
+            }
+
+            .main-nav {
+                padding: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                border-radius: 0;
+            }
+
+            .grade-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span>📚</span>
+                <span>Elementary Family Newsletter</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">🏠 Home</a></li>
+                <li><a href="#grades" class="nav-link">📖 Grade Guides</a></li>
+                <li><a href="#highlights" class="nav-link">⭐ About</a></li>
+                <li><a href="#links" class="nav-link">🔗 Quick Links</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section - Scale.com style -->
+        <section class="hero-section fade-in">
+            <h1 class="fade-in">Your Weekly Guide to Navigating Elementary Life</h1>
+            <p class="subtitle fade-in-delay">Weekly newsletter designed to help families understand grade-level expectations, access valuable learning resources, and stay informed about Florida B.E.S.T. Standards.</p>
+            <span class="hero-badge fade-in-delay-2">🏛️ Florida B.E.S.T. Standards</span>
+        </section>
+
+        <!-- Weekly Date Banner -->
+        <div class="date-banner">
+            <div class="date-banner-content">
+                <h2 id="weekDate">Loading...</h2>
+            </div>
+        </div>
+
+        <!-- About This Website - Scale.com style -->
+        <section class="highlights-section" id="highlights" style="background: #F9FAFB;">
+            <h2 class="section-title">About This Newsletter</h2>
+            <p class="section-subtitle">Your weekly guide to navigating elementary school life with confidence and clarity</p>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>📚 What We Do</h3>
+                    <ul>
+                        <li>Weekly newsletter designed to help families navigate elementary school life</li>
+                        <li>Comprehensive grade-level guides (Kindergarten through 5th Grade)</li>
+                        <li>Aligned with Florida B.E.S.T. Standards for each grade level</li>
+                        <li>Resources and tools to support your child's learning journey</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <h3>🎯 Our Purpose</h3>
+                    <ul>
+                        <li>Help families understand what to expect at each grade level</li>
+                        <li>Provide clear information about Florida educational standards</li>
+                        <li>Connect families with valuable learning resources and tools</li>
+                        <li>Support your involvement in your child's education</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <h3>💡 How We Help</h3>
+                    <ul>
+                        <li>Understand grade-specific academic expectations and standards</li>
+                        <li>Access trusted educational resources for at-home learning</li>
+                        <li>Stay informed about curriculum and learning objectives</li>
+                        <li>Navigate elementary school with confidence and clarity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links" id="links">
+            <h2>Learning Resources & Tools</h2>
+            <div class="links-grid">
+                <a href="https://www.khanacademy.org" class="link-card" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">
+                        <img src="https://cdn.kastatic.org/images/khan-logo-dark-background-2.svg" alt="Khan Academy logo" onerror="this.outerHTML='<div style=\'font-size:3rem;\'>📚</div>';">
+                    </div>
+                    <div class="text">Khan Academy<br>Free Math & Science</div>
+                </a>
+                <a href="https://www.pbslearningmedia.org" class="link-card" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">
+                        <img src="https://www-tc.pbs.org/prod-media/learningmedia/images/logos/pbs-logo.svg" alt="PBS logo" onerror="this.outerHTML='<div style=\'font-size:3rem;\'>🎬</div>';">
+                    </div>
+                    <div class="text">PBS LearningMedia<br>Videos & Lessons</div>
+                </a>
+                <a href="https://classroommagazines.scholastic.com/support/learnathome.html" class="link-card" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">
+                        <img src="https://www.scholastic.com/content/dam/scholastic/logos/logo-scholastic.svg" alt="Scholastic logo" onerror="this.outerHTML='<div style=\'font-size:3rem;\'>📖</div>';">
+                    </div>
+                    <div class="text">Scholastic<br>Learn at Home</div>
+                </a>
+                <a href="https://www.readwritethink.org" class="link-card" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">
+                        <img src="https://www.readwritethink.org/sites/default/files/rwt-logo.png" alt="ReadWriteThink logo" onerror="this.outerHTML='<div style=\'font-size:3rem;\'>✍️</div>';">
+                    </div>
+                    <div class="text">ReadWriteThink<br>Literacy Resources</div>
+                </a>
+                <a href="https://www.mathplayground.com" class="link-card" target="_blank" rel="noopener noreferrer">
+                    <div class="icon">
+                        <img src="https://www.mathplayground.com/images/logo.png" alt="Math Playground logo" onerror="this.outerHTML='<div style=\'font-size:3rem;\'>🎮</div>';">
+                    </div>
+                    <div class="text">Math Playground<br>Games & Puzzles</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Grade Guides Section - Scale.com style -->
+        <section id="grades" class="section" style="background: white;">
+            <h2 class="section-title">Grade Level Guides</h2>
+            <p class="section-subtitle">Comprehensive information about what families should know for each grade level, aligned with Florida B.E.S.T. Standards</p>
+
+        <!-- Kindergarten -->
+        <section class="grade-section grade-k-section">
+            <div class="content-wrapper">
+                <div class="grade-header">
+                    <div class="grade-number grade-k">K</div>
+                    <h2 class="grade-title">Kindergarten</h2>
+                </div>
+
+            <h3 class="section-title">B.E.S.T. ELA Standards</h3>
+            <ul class="info-list">
+                <li><strong>Foundational Skills:</strong> Letter recognition, letter sounds, and beginning phonics</li>
+                <li><strong>Reading:</strong> Recognize and name letters, identify beginning sounds, and read simple words</li>
+                <li><strong>Writing:</strong> Write letters and simple words, draw and label pictures</li>
+                <li><strong>Communication:</strong> Express ideas orally and participate in conversations</li>
+                <li><strong>Comprehension:</strong> Answer questions about stories read aloud</li>
+            </ul>
+
+            <h3 class="section-title">B.E.S.T. Math Standards</h3>
+            <ul class="info-list">
+                <li><strong>Counting:</strong> Count to 100, count by tens, recognize numbers 0-20</li>
+                <li><strong>Number Sense:</strong> Compare quantities, understand more/less/same</li>
+                <li><strong>Operations:</strong> Add and subtract within 10 using objects and pictures</li>
+                <li><strong>Geometry:</strong> Identify and describe two-dimensional and three-dimensional shapes</li>
+                <li><strong>Measurement:</strong> Compare length, weight, and capacity of objects</li>
+            </ul>
+
+            <h3 class="section-title">Florida Standards - Social Studies & Science</h3>
+            <ul class="info-list">
+                <li><strong>Social Studies:</strong> Learn about families, communities, and basic citizenship</li>
+                <li><strong>Science:</strong> Explore the five senses, living and nonliving things, and weather</li>
+                <li><strong>Social Skills:</strong> Develop classroom routines, sharing, and following directions</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 1st Grade -->
+        <section class="grade-section grade-1-section">
+            <div class="content-wrapper">
+                <div class="grade-header">
+                    <div class="grade-number grade-1">1</div>
+                    <h2 class="grade-title">First Grade</h2>
+                </div>
+
+            <h3 class="section-title">B.E.S.T. ELA Standards</h3>
+            <ul class="info-list">
+                <li><strong>Reading:</strong> Decode one-syllable and two-syllable words, read with accuracy and expression</li>
+                <li><strong>Comprehension:</strong> Identify main topic, retell stories, and answer questions about text</li>
+                <li><strong>Writing:</strong> Write simple sentences with capitalization and punctuation</li>
+                <li><strong>Phonics:</strong> Master vowel teams, digraphs, and blends</li>
+                <li><strong>Vocabulary:</strong> Use context clues to determine word meanings</li>
+            </ul>
+
+            <h3 class="section-title">B.E.S.T. Math Standards</h3>
+            <ul class="info-list">
+                <li><strong>Number Operations:</strong> Add and subtract within 20, understand place value (tens and ones)</li>
+                <li><strong>Measurement:</strong> Tell time to the hour and half-hour, measure length with non-standard units</li>
+                <li><strong>Data:</strong> Organize and interpret data using simple graphs</li>
+                <li><strong>Geometry:</strong> Compose and decompose shapes, understand attributes</li>
+                <li><strong>Problem Solving:</strong> Solve word problems involving addition and subtraction</li>
+            </ul>
+
+            <h3 class="section-title">Florida Standards - Social Studies & Science</h3>
+            <ul class="info-list">
+                <li><strong>Social Studies:</strong> Learn about Florida symbols, community roles, and basic geography</li>
+                <li><strong>Science:</strong> Study plants and animals, explore Earth materials and patterns in nature</li>
+                <li><strong>Social Skills:</strong> Develop independence, conflict resolution, and collaborative learning</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 2nd Grade -->
+        <section class="grade-section grade-2-section">
+            <div class="content-wrapper">
+                <div class="grade-header">
+                    <div class="grade-number grade-2">2</div>
+                    <h2 class="grade-title">Second Grade</h2>
+                </div>
+
+            <h3 class="section-title">B.E.S.T. ELA Standards</h3>
+            <ul class="info-list">
+                <li><strong>Reading Prose & Poetry:</strong> Build fluency and read with expression, identify main idea and story elements</li>
+                <li><strong>Reading Informational Text:</strong> Determine main topic and key details in nonfiction texts</li>
+                <li><strong>Writing:</strong> Write complete sentences and short paragraphs with clear topic sentences</li>
+                <li><strong>Vocabulary:</strong> Use context clues and word relationships to determine meanings</li>
+                <li><strong>Grammar:</strong> Identify nouns, verbs, adjectives, and use proper punctuation</li>
+            </ul>
+
+            <h3 class="section-title">B.E.S.T. Math Standards</h3>
+            <ul class="info-list">
+                <li><strong>Number Sense:</strong> Addition and subtraction within 100, place value (ones, tens, hundreds)</li>
+                <li><strong>Measurement:</strong> Tell and write time (analog and digital clocks), measure length</li>
+                <li><strong>Data Analysis:</strong> Organize, represent, and interpret data using graphs</li>
+                <li><strong>Money:</strong> Identify coins, count money, and solve problems involving money</li>
+                <li><strong>Geometry:</strong> Identify and describe two-dimensional shapes</li>
+            </ul>
+
+            <h3 class="section-title">Florida Standards - Social Studies & Science</h3>
+            <ul class="info-list">
+                <li><strong>Social Studies:</strong> Learn about Florida communities, basic geography, and community helpers</li>
+                <li><strong>Science:</strong> Explore life cycles of plants and animals, weather patterns, and seasonal changes</li>
+                <li><strong>Social Skills:</strong> Develop independence, peer relationships, and organizational skills</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 3rd Grade -->
+        <section class="grade-section grade-3-section">
+            <div class="content-wrapper">
+                <div class="grade-header">
+                    <div class="grade-number grade-3">3</div>
+                    <h2 class="grade-title">Third Grade</h2>
+                </div>
+
+            <h3 class="section-title">B.E.S.T. ELA Standards</h3>
+            <ul class="info-list">
+                <li><strong>Reading Prose & Poetry:</strong> Determine theme, identify character traits, analyze plot structure</li>
+                <li><strong>Reading Informational Text:</strong> Explain author's purpose and point of view, compare texts</li>
+                <li><strong>Writing:</strong> Write narrative, opinion, and informational texts with clear organization</li>
+                <li><strong>Vocabulary:</strong> Determine meanings of words using affixes, roots, and context clues</li>
+                <li><strong>Research:</strong> Conduct short research projects and cite sources</li>
+            </ul>
+
+            <h3 class="section-title">B.E.S.T. Math Standards</h3>
+            <ul class="info-list">
+                <li><strong>Number Operations:</strong> Master multiplication and division facts (0-12), multi-digit operations</li>
+                <li><strong>Fractions:</strong> Understand fractions as parts of a whole, identify equivalent fractions</li>
+                <li><strong>Measurement:</strong> Measure and estimate length, capacity, weight, and time</li>
+                <li><strong>Geometry:</strong> Understand perimeter and area, classify two-dimensional shapes</li>
+                <li><strong>Data Analysis:</strong> Interpret and create bar graphs, pictographs, and line plots</li>
+            </ul>
+
+            <h3 class="section-title">Florida Standards - Critical Transition Year</h3>
+            <ul class="info-list">
+                <li><strong>Assessment:</strong> Florida FAST (Florida Assessment of Student Thinking) testing begins in 3rd grade</li>
+                <li><strong>Promotion:</strong> Third grade promotion depends on meeting reading requirements</li>
+                <li><strong>Social Studies:</strong> Study Florida history, state symbols, and civic responsibility</li>
+                <li><strong>Science:</strong> Explore forces and motion, habitats, and environmental changes</li>
+                <li><strong>Independence:</strong> Develop study skills, time management, and homework routines</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 4th Grade -->
+        <section class="grade-section grade-4-section">
+            <div class="content-wrapper">
+                <div class="grade-header">
+                    <div class="grade-number grade-4">4</div>
+                    <h2 class="grade-title">Fourth Grade</h2>
+                </div>
+
+            <h3 class="section-title">B.E.S.T. ELA Standards</h3>
+            <ul class="info-list">
+                <li><strong>Reading Prose & Poetry:</strong> Compare and contrast themes, analyze character development</li>
+                <li><strong>Reading Informational Text:</strong> Analyze text structure, integrate information from multiple sources</li>
+                <li><strong>Writing:</strong> Write opinion pieces with reasons and evidence, multi-paragraph essays</li>
+                <li><strong>Language:</strong> Use complex sentences, subject-verb agreement, and proper conventions</li>
+                <li><strong>Research:</strong> Conduct research projects using multiple sources and digital tools</li>
+            </ul>
+
+            <h3 class="section-title">B.E.S.T. Math Standards</h3>
+            <ul class="info-list">
+                <li><strong>Operations:</strong> Multi-digit multiplication and division, word problems with all operations</li>
+                <li><strong>Fractions:</strong> Compare, order, add, and subtract fractions with like denominators</li>
+                <li><strong>Decimals:</strong> Understand decimal notation, compare and order decimals</li>
+                <li><strong>Measurement:</strong> Convert units within measurement systems (length, weight, capacity)</li>
+                <li><strong>Geometry:</strong> Classify angles, identify lines of symmetry, understand area and perimeter</li>
+            </ul>
+
+            <h3 class="section-title">Florida Standards - Social Studies & Science</h3>
+            <ul class="info-list">
+                <li><strong>Social Studies:</strong> Study Florida geography, regions of the United States, and Florida's role in American history</li>
+                <li><strong>Science:</strong> Explore forms of energy, weather patterns, Earth's features, and adaptations</li>
+                <li><strong>Academic Skills:</strong> Enhanced critical thinking, note-taking, and collaborative project work</li>
+                <li><strong>Assessment:</strong> Continue FAST testing with increased rigor and expectations</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 5th Grade -->
+        <section class="grade-section grade-5-section">
+            <div class="content-wrapper">
+                <div class="grade-header">
+                    <div class="grade-number grade-5">5</div>
+                    <h2 class="grade-title">Fifth Grade</h2>
+                </div>
+
+            <h3 class="section-title">B.E.S.T. ELA Standards</h3>
+            <ul class="info-list">
+                <li><strong>Reading Prose & Poetry:</strong> Analyze themes across texts, interpret figurative language</li>
+                <li><strong>Reading Informational Text:</strong> Synthesize information from multiple texts, evaluate author's arguments</li>
+                <li><strong>Writing:</strong> Write persuasive essays with clear arguments, research reports, and detailed narratives</li>
+                <li><strong>Language:</strong> Master grammar conventions, use academic vocabulary effectively</li>
+                <li><strong>Presentation:</strong> Deliver presentations using digital media and public speaking skills</li>
+            </ul>
+
+            <h3 class="section-title">B.E.S.T. Math Standards</h3>
+            <ul class="info-list">
+                <li><strong>Fractions & Decimals:</strong> Add, subtract, multiply, and divide fractions and mixed numbers</li>
+                <li><strong>Operations:</strong> Perform operations with multi-digit decimals, understand percentages</li>
+                <li><strong>Algebraic Thinking:</strong> Write and evaluate expressions, identify patterns and relationships</li>
+                <li><strong>Geometry:</strong> Calculate volume of rectangular prisms, classify two-dimensional figures</li>
+                <li><strong>Coordinate System:</strong> Graph points and interpret data on coordinate planes</li>
+            </ul>
+
+            <h3 class="section-title">Florida Standards - Middle School Preparation</h3>
+            <ul class="info-list">
+                <li><strong>Social Studies:</strong> Study American history, government structure, and Florida's role in the nation</li>
+                <li><strong>Science:</strong> Explore solar system, human body systems, matter and energy</li>
+                <li><strong>Transition Skills:</strong> Develop independence, self-advocacy, and responsibility for learning</li>
+                <li><strong>Assessment:</strong> Complete FAST assessments preparing for middle school expectations</li>
+                <li><strong>Readiness:</strong> Prepare for multiple teachers, class transitions, and increased homework</li>
+            </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3>📧 Get in Touch</h3>
+                <p><strong>Questions or Concerns?</strong> Reach out to your child's teacher or school office for grade-specific information.</p>
+                <p>Email: <a href="mailto:office@school.edu">office@school.edu</a> | Phone: (555) 123-4567</p>
+                <p style="margin-top: 2rem; font-size: 0.875rem; opacity: 0.9;">
+                    This newsletter aligns with Florida's B.E.S.T. (Benchmarks for Excellent Student Thinking) Standards.<br>
+                    For more information, visit <a href="https://www.fldoe.org/academics/standards" target="_blank">fldoe.org/academics/standards</a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.8;">
+                    © 2024 Elementary Family Newsletter. Updated weekly to help families navigate elementary life.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Display current week date range
+        function getWeekDates() {
+            const today = new Date();
+            const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            
+            // Calculate Monday of current week
+            const monday = new Date(today);
+            const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1); // Adjust when day is Sunday
+            monday.setDate(diff);
+            
+            // Calculate Friday of current week
+            const friday = new Date(monday);
+            friday.setDate(monday.getDate() + 4);
+            
+            const options = { month: 'long', day: 'numeric', year: 'numeric' };
+            const mondayStr = monday.toLocaleDateString('en-US', options);
+            const fridayStr = friday.toLocaleDateString('en-US', options);
+            
+            return `${mondayStr} - ${fridayStr}`;
+        }
+
+        // Update week date banner
+        document.addEventListener('DOMContentLoaded', function() {
+            const weekDateElement = document.getElementById('weekDate');
+            if (weekDateElement) {
+                weekDateElement.textContent = `Week of ${getWeekDates()}`;
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for sticky nav
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll-to-top button
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.className = 'scroll-to-top';
+        scrollToTopBtn.innerHTML = '↑';
+        scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+        document.body.appendChild(scrollToTopBtn);
+
+        // Show/hide scroll-to-top button
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top functionality
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.highlight-card, .link-card, .grade-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
