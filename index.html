@@ -84,18 +84,24 @@
         }
 
         :root {
-            --primary-yellow: #FFD93D;
-            --coral: #FF6B6B;
-            --teal: #4ECDC4;
-            --mint: #95E1D3;
-            --navy: #2C3E50;
+            --illinois-blue: #13294B;
+            --illinois-orange: #FF5F00;
+            --illinois-blue-light: #1E4A6B;
+            --illinois-orange-light: #FF8C42;
+            --illinois-orange-lighter: #FFB380;
+            --navy: #13294B;
             --warm-white: #FFFEF7;
             --reading-time: cubic-bezier(0.4, 0.0, 0.2, 1);
+            /* Legacy color names mapped to Illinois colors */
+            --primary-yellow: #FF5F00;
+            --coral: #FF5F00;
+            --teal: #13294B;
+            --mint: #1E4A6B;
         }
 
         /* Accessibility improvements */
         *:focus-visible {
-            outline: 3px solid var(--coral);
+            outline: 3px solid var(--illinois-orange);
             outline-offset: 2px;
         }
 
@@ -154,7 +160,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(135deg, var(--teal) 0%, var(--coral) 100%);
+            background: linear-gradient(135deg, var(--illinois-blue) 0%, var(--illinois-orange) 100%);
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             z-index: 100;
             padding: 1rem 2rem;
@@ -182,7 +188,7 @@
         }
 
         .nav-logo:hover {
-            color: var(--primary-yellow);
+            color: var(--illinois-orange-light);
         }
 
         .nav-menu {
@@ -215,13 +221,13 @@
 
         .nav-link:hover {
             background: rgba(255,255,255,0.3);
-            color: var(--primary-yellow);
+            color: var(--illinois-orange-light);
             transform: translateY(-2px);
         }
 
         .nav-link.active {
-            background: var(--primary-yellow);
-            color: var(--navy);
+            background: var(--illinois-orange);
+            color: white;
             font-weight: 700;
         }
 
@@ -331,15 +337,15 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--navy);
-            background: var(--primary-yellow);
-            border-bottom: 2px solid var(--navy);
+            color: white;
+            background: var(--illinois-orange);
+            border-bottom: 2px solid var(--illinois-blue);
         }
 
         .dropdown-item {
             display: block;
             padding: 0.75rem 1.25rem;
-            color: var(--navy);
+            color: var(--illinois-blue);
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.2s var(--reading-time);
@@ -351,13 +357,13 @@
         }
 
         .dropdown-item:hover {
-            background: var(--teal);
+            background: var(--illinois-blue);
             color: white;
             padding-left: 1.5rem;
         }
 
         .dropdown-item.active {
-            background: var(--coral);
+            background: var(--illinois-orange);
             color: white;
             font-weight: 700;
         }
@@ -396,7 +402,7 @@
         }
 
         .action-btn {
-            background: var(--coral);
+            background: var(--illinois-orange);
             color: white;
             border: none;
             border-radius: 50px;
@@ -408,14 +414,14 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s var(--reading-time);
-            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 95, 0, 0.3);
             text-decoration: none;
         }
 
         .action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
-            background: #ff5252;
+            box-shadow: 0 6px 16px rgba(255, 95, 0, 0.4);
+            background: var(--illinois-orange-light);
         }
 
         .action-btn:active {
@@ -423,13 +429,13 @@
         }
 
         .action-btn.menu-btn {
-            background: #2196F3;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+            background: var(--illinois-blue);
+            box-shadow: 0 4px 12px rgba(19, 41, 75, 0.3);
         }
 
         .action-btn.menu-btn:hover {
-            background: #1976D2;
-            box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+            background: var(--illinois-blue-light);
+            box-shadow: 0 6px 16px rgba(19, 41, 75, 0.4);
         }
 
         /* Mobile navigation styles */
@@ -451,7 +457,7 @@
                 top: 60px;
                 left: 0;
                 right: 0;
-                background: var(--navy);
+                background: var(--illinois-blue);
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0;
@@ -522,7 +528,7 @@
 
         .language-selector select {
             background: white;
-            border: 2px solid var(--navy);
+            border: 2px solid var(--illinois-blue);
             border-radius: 25px;
             padding: 10px 20px;
             font-size: 0.9rem;
@@ -538,7 +544,7 @@
         }
 
         .language-selector select:focus {
-            outline: 3px solid var(--coral);
+            outline: 3px solid var(--illinois-orange);
             outline-offset: 2px;
         }
 
@@ -548,13 +554,14 @@
             position: fixed;
             top: 70px;
             right: 20px;
-            background: var(--primary-yellow);
+            background: var(--illinois-orange);
             padding: 10px 15px;
             border-radius: 15px;
             font-size: 0.85rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 49;
             animation: slideIn 0.3s ease;
+            color: white;
         }
 
         @keyframes slideIn {
@@ -574,10 +581,10 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0F5 100%);
             padding: 2rem 1rem;
             line-height: 1.5; /* Bringhurst: Perfect fifth ratio (1.5) */
-            color: var(--navy);
+            color: var(--illinois-blue);
             font-size: 16px;
         }
 
@@ -602,7 +609,7 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            border: 3px solid var(--coral);
+            border: 3px solid var(--illinois-orange);
         }
 
         .container::before {
@@ -624,19 +631,20 @@
             text-align: center;
             margin-bottom: 3rem;
             padding-bottom: 2rem;
-            border-bottom: 3px solid var(--primary-yellow);
+            border-bottom: 3px solid var(--illinois-orange);
             position: relative;
         }
 
         .hello-badge {
             display: inline-block;
-            background: var(--primary-yellow);
+            background: var(--illinois-orange);
             padding: 0.75rem 2rem;
             border-radius: 20px;
             margin-bottom: 1.5rem;
             transform: rotate(-1deg);
             box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
             transition: transform 0.3s var(--reading-time);
+            color: white;
         }
 
         .hello-badge:hover {
@@ -650,6 +658,7 @@
             letter-spacing: 0.02em;
             text-transform: uppercase;
             line-height: 1;
+            color: white;
         }
 
         .hello-badge h2 {
@@ -658,11 +667,12 @@
             font-weight: 700;
             line-height: 1.1;
             margin-top: 0.25rem;
+            color: white;
         }
 
         .newsletter-title {
             font-family: 'Fraunces', Georgia, serif;
-            color: var(--coral);
+            color: var(--illinois-blue);
             font-size: clamp(1.75rem, 3.5vw, 2.75rem);
             font-weight: 900;
             text-transform: uppercase;
@@ -673,14 +683,14 @@
 
         /* Sticky date banner */
         .date-banner {
-            background: var(--teal);
+            background: var(--illinois-blue);
             color: white;
             padding: 1.5rem 2rem;
             margin: 2rem 0 3rem;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
-            border-left: 6px solid var(--navy);
+            box-shadow: 0 4px 12px rgba(19, 41, 75, 0.3);
+            border-left: 6px solid var(--illinois-orange);
             position: sticky;
             top: 0;
             z-index: 10;
@@ -688,7 +698,7 @@
         }
 
         .date-banner.stuck {
-            box-shadow: 0 8px 24px rgba(78, 205, 196, 0.4);
+            box-shadow: 0 8px 24px rgba(19, 41, 75, 0.4);
         }
 
         .date-banner h2 {
@@ -700,12 +710,12 @@
 
         /* Intro uses contrast to signal importance */
         .intro-box {
-            background: linear-gradient(135deg, #FFE4E1 0%, #FFD1D1 100%);
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE8D1 100%);
             padding: 2rem;
             margin: 0 0 3rem;
             border-radius: 20px;
-            border-left: 8px solid var(--coral);
-            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
+            border-left: 8px solid var(--illinois-orange);
+            box-shadow: 0 4px 12px rgba(255, 95, 0, 0.15);
         }
 
         .intro-box h3 {
@@ -759,23 +769,23 @@
         }
 
         .reminders-section {
-            border-color: var(--teal);
-            background: linear-gradient(135deg, white 0%, #F0FFFE 100%);
+            border-color: var(--illinois-blue);
+            background: linear-gradient(135deg, white 0%, #E8F0F5 100%);
         }
 
         .events-section {
-            border-color: var(--primary-yellow);
-            background: linear-gradient(135deg, white 0%, #FFFEF0 100%);
+            border-color: var(--illinois-orange);
+            background: linear-gradient(135deg, white 0%, #FFF4E6 100%);
         }
 
         .math-science-box {
-            border-color: #6B9BD1;
-            background: linear-gradient(135deg, white 0%, #F0F5FF 100%);
+            border-color: var(--illinois-blue-light);
+            background: linear-gradient(135deg, white 0%, #E8F0F5 100%);
         }
 
         .reading-box {
-            border-color: var(--mint);
-            background: linear-gradient(135deg, white 0%, #F0FFF5 100%);
+            border-color: var(--illinois-orange-light);
+            background: linear-gradient(135deg, white 0%, #FFF4E6 100%);
         }
 
         /* Clear hierarchy in headings */
@@ -809,7 +819,7 @@
             position: absolute;
             left: 0;
             font-weight: 700;
-            color: var(--coral);
+            color: var(--illinois-orange);
         }
 
         .subsection {
@@ -825,7 +835,7 @@
             font-weight: 700;
             margin-bottom: 0.75rem;
             font-size: 1.125rem;
-            color: var(--navy);
+            color: var(--illinois-blue);
         }
 
         /* Spelling section with clear structure */
@@ -834,8 +844,8 @@
             padding: 2rem;
             margin: 3rem 0;
             border-radius: 20px;
-            border: 3px solid var(--primary-yellow);
-            background: linear-gradient(135deg, white 0%, #FFFEF0 100%);
+            border: 3px solid var(--illinois-orange);
+            background: linear-gradient(135deg, white 0%, #FFF4E6 100%);
         }
 
         .spelling-section h3 {
@@ -847,7 +857,7 @@
             letter-spacing: 0.05em;
             text-align: center;
             padding-bottom: 1rem;
-            border-bottom: 3px solid var(--primary-yellow);
+            border-bottom: 3px solid var(--illinois-orange);
         }
 
         /* Grid shows relationships between items */
@@ -872,7 +882,7 @@
         }
 
         .spelling-word:hover {
-            border-color: var(--primary-yellow);
+            border-color: var(--illinois-orange);
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
@@ -897,13 +907,13 @@
 
         /* Challenge words stand out - clear affordance */
         .challenge-words {
-            background: var(--primary-yellow);
+            background: var(--illinois-orange);
             padding: 1.5rem;
             border-radius: 20px;
             margin-top: 2rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(255, 217, 61, 0.3);
-            border: 3px dashed var(--navy);
+            box-shadow: 0 4px 12px rgba(255, 95, 0, 0.3);
+            border: 3px dashed var(--illinois-blue);
         }
 
         .challenge-words h4 {
@@ -911,7 +921,7 @@
             font-weight: 700;
             font-size: 1.75rem;
             margin-bottom: 1rem;
-            color: var(--navy);
+            color: white;
         }
 
         .challenge-words .words {
@@ -922,7 +932,7 @@
         }
 
         .challenge-words .word {
-            color: var(--coral);
+            color: var(--illinois-blue);
             font-weight: 700;
             font-size: 1.375rem;
             font-family: 'Fraunces', Georgia, serif;
@@ -938,24 +948,24 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
-            background: var(--primary-yellow);
-            color: var(--navy);
-            border: 2px solid var(--navy);
+            background: var(--illinois-orange);
+            color: white;
+            border: 2px solid var(--illinois-blue);
             border-radius: 50px;
             font-family: 'Fraunces', Georgia, serif;
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s var(--reading-time);
-            box-shadow: 0 4px 12px rgba(255, 217, 61, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 95, 0, 0.3);
             margin-bottom: 1.5rem;
         }
 
         .print-spelling-btn:hover {
-            background: var(--navy);
-            color: var(--primary-yellow);
+            background: var(--illinois-blue);
+            color: var(--illinois-orange-light);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 217, 61, 0.4);
+            box-shadow: 0 6px 16px rgba(19, 41, 75, 0.4);
         }
 
         .print-spelling-btn:active {
@@ -1131,7 +1141,7 @@
         .daily-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            border-color: var(--teal);
+            border-color: var(--illinois-blue);
         }
 
         .daily-btn .day-icon {
@@ -1143,7 +1153,7 @@
             font-family: 'Fraunces', Georgia, serif;
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--illinois-blue);
             margin-bottom: 0.25rem;
         }
 
@@ -1155,28 +1165,28 @@
         }
 
         .daily-btn.monday:hover {
-            border-color: #FF6B6B;
-            background: linear-gradient(135deg, #FFF5F5 0%, #FFE8E8 100%);
+            border-color: var(--illinois-orange);
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE8D1 100%);
         }
 
         .daily-btn.tuesday:hover {
-            border-color: #4ECDC4;
-            background: linear-gradient(135deg, #F0FFFE 0%, #E8FFFE 100%);
+            border-color: var(--illinois-blue);
+            background: linear-gradient(135deg, #E8F0F5 0%, #D8E8F0 100%);
         }
 
         .daily-btn.wednesday:hover {
-            border-color: #FFD93D;
-            background: linear-gradient(135deg, #FFFEF0 0%, #FFFCE8 100%);
+            border-color: var(--illinois-orange);
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE8D1 100%);
         }
 
         .daily-btn.thursday:hover {
-            border-color: #6B9BD1;
-            background: linear-gradient(135deg, #F0F5FF 0%, #E8F0FF 100%);
+            border-color: var(--illinois-blue-light);
+            background: linear-gradient(135deg, #E8F0F5 0%, #D8E8F0 100%);
         }
 
         .daily-btn.friday:hover {
-            border-color: #95E1D3;
-            background: linear-gradient(135deg, #F0FFF5 0%, #E8FFF0 100%);
+            border-color: var(--illinois-orange-light);
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE8D1 100%);
         }
 
         /* Footer provides closure */
@@ -1184,7 +1194,7 @@
             text-align: center;
             margin-top: 3rem;
             padding: 2rem;
-            background: var(--navy);
+            background: var(--illinois-blue);
             color: white;
             border-radius: 20px;
             font-size: 0.9375rem;
@@ -1472,7 +1482,7 @@
 
             /* Print-specific spelling section styles */
             .spelling-section {
-                border: 1px solid var(--navy);
+                border: 1px solid var(--illinois-blue);
                 page-break-inside: avoid;
             }
 
@@ -1604,16 +1614,19 @@
         </div>
 
         <div class="date-banner">
-            <h2>NOVEMBER 17-21, 2025</h2>
+            <h2>DECEMBER 1-5, 2025</h2>
         </div>
 
         <div class="intro-box">
-            <h3>Almost Thanksgiving Break! 💙 ✓</h3>
-            <p>We've officially entered our last week before Thanksgiving Break, and our Barracudas are working hard to finish strong! I'm so proud of the effort they've been showing, and I can't wait to see them end the week on a positive note.</p>
-            <p><strong>🎓 Career Day - November 20th:</strong> Career Day is right around the corner and our school has an exciting lineup of careers for students to explore! Students will have the chance to learn about a variety of inspiring jobs. This is always one of our most memorable school events, and I can't wait for the students to experience it!</p>
-            <p><strong>📚 No Spelling or Vocabulary Next Week:</strong> There will be no spelling test or new vocabulary words next week. Instead, we'll be taking our Unit 2 Test and reviewing the concepts we learned in units 1 and 2.</p>
-            <p><strong>📝 Important Note:</strong> Mr. Vargas will not be here on Thursday, November 20th and Friday, November 21st. There will be no tutoring on Friday, November 21st.</p>
-            <p>Thank you for your continued partnership and support! 💙</p>
+            <h3>PM2 FAST Test Review & Testing Information</h3>
+            <p>This week, we will be reviewing important skills to prepare for the PM2 FAST test. Please make sure your child is at school every day so they don't miss any key review sessions.</p>
+            <p>Next week, we will begin PM2 FAST testing. To help your child do their best:</p>
+            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                <li style="margin-bottom: 0.5rem;">Encourage daily practice at home on reading and math skills.</li>
+                <li style="margin-bottom: 0.5rem;">Make sure they get a balanced breakfast and dinner.</li>
+                <li style="margin-bottom: 0.5rem;">Ensure they have plenty of rest each night.</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Your support makes a big difference in their success! Thank you for partnering with us.</strong></p>
         </div>
 
         <div class="two-column">
@@ -1631,9 +1644,10 @@
             <div class="section-box events-section" data-icon="📅">
                 <h3>Upcoming Events</h3>
                 <ul>
-                    <li><strong>11/14</strong> - Progress reports emailed</li>
-                    <li><strong>11/20</strong> - Career Day</li>
                     <li><strong>11/24-28</strong> - No School (Fall Break)</li>
+                    <li><strong>12/1-12/5</strong> - FAST Review Week</li>
+                    <li><strong>12/9</strong> - PM2 Reading FAST Test</li>
+                    <li><strong>12/10</strong> - PM2 Math FAST Test</li>
                     <li><strong>Every Fri</strong> - Students may wear a spirit shirt. Uniform bottoms required (exception for PTSO jeans pass)</li>
                 </ul>
             </div>
@@ -1646,9 +1660,8 @@
                 <div class="subsection">
                     <h4>Math</h4>
                     <ul>
-                        <li>Estimate sums.</li>
-                        <li>Use partial sums to add.</li>
-                        <li>Add three and four digit numbers.</li>
+                        <li>Solve real world problems involving adding, subtraction, multiplication, and division.</li>
+                        <li>Topic 7 Test on 12/5.</li>
                     </ul>
                 </div>
 
@@ -1666,33 +1679,51 @@
                 <div class="subsection">
                     <h4>Reading</h4>
                     <ul>
-                        <li>Review all concepts learned in Unit 2 to prepare for the Unit 2 Test.</li>
+                        <li>Review for PM2 FAST Test</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <h4>Writing</h4>
                     <ul>
-                        <li>Review how to properly write a sentence.</li>
-                        <li>Review intro, reasons, and conclusion paragraphs.</li>
-                        <li>Spelling Focus: N/A</li>
+                        <li>Review for PM2 FAST Test.</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <h4>Social Studies</h4>
                     <ul>
-                        <li>Understand why settlers came from England to North America.</li>
+                        <li>Understand the causes and effects of the American Revolution.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="spelling-section">
-            <h3>Spelling List 13</h3>
-            <p style="text-align: center; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem;">
-                No Spelling Words/Test This Week!
-            </p>
+            <h3>Spelling List 13 (TEST IS ON 12/19)</h3>
+            <div class="spelling-grid">
+                <div class="spelling-word" data-word="prepay">1. prepay</div>
+                <div class="spelling-word" data-word="nonstop">2. nonstop</div>
+                <div class="spelling-word" data-word="disagree">3. disagree</div>
+                <div class="spelling-word" data-word="nonfiction">4. nonfiction</div>
+                <div class="spelling-word" data-word="preapprove">5. preapprove</div>
+                <div class="spelling-word" data-word="indirect">6. indirect</div>
+                <div class="spelling-word" data-word="imperfect">7. imperfect</div>
+                <div class="spelling-word" data-word="impolite">8. impolite</div>
+                <div class="spelling-word" data-word="insecure">9. insecure</div>
+                <div class="spelling-word" data-word="incorrect">10. incorrect</div>
+                <div class="spelling-word" data-word="impossibility">11. impossibility</div>
+                <div class="spelling-word" data-word="indefinite">12. indefinite</div>
+                <div class="spelling-word" data-word="disqualify">13. disqualify</div>
+            </div>
+            <div class="challenge-words">
+                <h4>CHALLENGE WORDS!!</h4>
+                <div class="words">
+                    <div class="word">impossibility</div>
+                    <div class="word">indefinite</div>
+                    <div class="word">disqualify</div>
+                </div>
+            </div>
         </div>
 
         <div class="footer">
@@ -1735,7 +1766,7 @@
                 utterance.volume = 1;
                 
                 // Add visual feedback
-                this.style.backgroundColor = '#FFD93D';
+                this.style.backgroundColor = '#FF5F00';
                 setTimeout(() => {
                     this.style.backgroundColor = 'white';
                 }, 300);
