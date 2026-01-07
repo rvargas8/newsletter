@@ -905,6 +905,19 @@
             opacity: 0.6;
         }
 
+        /* Challenge spelling words - different color to differentiate */
+        .spelling-word.challenge {
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE8D1 100%);
+            border: 3px solid var(--illinois-orange);
+            font-weight: 700;
+            color: var(--illinois-blue);
+        }
+
+        .spelling-word.challenge:hover {
+            border-color: var(--illinois-orange-light);
+            background: linear-gradient(135deg, #FFE8D1 0%, #FFD4A3 100%);
+        }
+
         /* Challenge words stand out - clear affordance */
         .challenge-words {
             background: var(--illinois-orange);
@@ -1707,9 +1720,9 @@
                 <div class="spelling-word" data-word="rd.">8. rd.</div>
                 <div class="spelling-word" data-word="vs.">9. vs.</div>
                 <div class="spelling-word" data-word="wt.">10. wt.</div>
-                <div class="spelling-word" data-word="dept.">11. dept.</div>
-                <div class="spelling-word" data-word="hrs.">12. hrs.</div>
-                <div class="spelling-word" data-word="fyi">13. fyi</div>
+                <div class="spelling-word challenge" data-word="dept.">11. dept.</div>
+                <div class="spelling-word challenge" data-word="hrs.">12. hrs.</div>
+                <div class="spelling-word challenge" data-word="fyi">13. fyi</div>
             </div>
         </div>
 
