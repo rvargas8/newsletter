@@ -231,72 +231,6 @@
             font-weight: 700;
         }
 
-        /* Icy Frozen Cold Reads Button */
-        .cold-reads-btn {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006b8f 100%) !important;
-            color: white !important;
-            font-weight: 700 !important;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 0 20px rgba(0, 212, 255, 0.6),
-                0 0 40px rgba(0, 153, 204, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            animation: frozen-pulse 3s ease-in-out infinite;
-        }
-
-        .cold-reads-btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            transform: rotate(45deg);
-            animation: ice-shimmer 3s linear infinite;
-        }
-
-        @keyframes frozen-pulse {
-            0%, 100% {
-                box-shadow: 
-                    0 0 20px rgba(0, 212, 255, 0.6),
-                    0 0 40px rgba(0, 153, 204, 0.4),
-                    inset 0 0 20px rgba(255, 255, 255, 0.3);
-            }
-            50% {
-                box-shadow: 
-                    0 0 30px rgba(0, 212, 255, 0.8),
-                    0 0 60px rgba(0, 153, 204, 0.6),
-                    inset 0 0 30px rgba(255, 255, 255, 0.5);
-            }
-        }
-
-        @keyframes ice-shimmer {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-
-        .cold-reads-btn:hover {
-            background: linear-gradient(135deg, #00e5ff 0%, #00b8e6 50%, #0080a8 100%) !important;
-            color: white !important;
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 
-                0 0 35px rgba(0, 229, 255, 0.9),
-                0 0 70px rgba(0, 184, 230, 0.7),
-                inset 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
         /* Purple Math Button */
         .math-btn {
             background: linear-gradient(135deg, #b86bff 0%, #8a4bff 50%, #5a2dd6 100%) !important;
@@ -1051,151 +985,6 @@
             transform: translateY(0);
         }
 
-        /* Cold Reads Practice Section - ICY FROZEN DESIGN */
-        .cold-reads-section {
-            background: linear-gradient(135deg, #E0F7FF 0%, #B3E5FC 50%, #81D4FA 100%);
-            padding: 3rem 2rem;
-            margin: 3rem 0;
-            border-radius: 24px;
-            border: 5px solid #00BCD4;
-            text-align: center;
-            box-shadow: 
-                0 0 30px rgba(0, 188, 212, 0.4),
-                0 0 60px rgba(129, 212, 250, 0.3),
-                inset 0 0 80px rgba(255, 255, 255, 0.5),
-                0 8px 32px rgba(0, 150, 200, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: frost-pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes frost-pulse {
-            0%, 100% {
-                box-shadow: 
-                    0 0 30px rgba(0, 188, 212, 0.4),
-                    0 0 60px rgba(129, 212, 250, 0.3),
-                    inset 0 0 80px rgba(255, 255, 255, 0.5),
-                    0 8px 32px rgba(0, 150, 200, 0.3);
-            }
-            50% {
-                box-shadow: 
-                    0 0 40px rgba(0, 188, 212, 0.6),
-                    0 0 80px rgba(129, 212, 250, 0.5),
-                    inset 0 0 100px rgba(255, 255, 255, 0.7),
-                    0 12px 40px rgba(0, 150, 200, 0.4);
-            }
-        }
-
-        /* Ice crystal decorations */
-        .cold-reads-section::before {
-            content: '❄️';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 4rem;
-            opacity: 0.4;
-            animation: float-ice 4s ease-in-out infinite;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-
-        .cold-reads-section::after {
-            content: '🧊';
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-            font-size: 4rem;
-            opacity: 0.4;
-            animation: float-ice 4s ease-in-out infinite reverse;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-
-        @keyframes float-ice {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(5deg);
-            }
-        }
-
-        .cold-reads-title {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            color: #006B7D;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.8),
-                0 0 20px rgba(129, 212, 250, 0.6),
-                2px 2px 4px rgba(0, 107, 125, 0.3);
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
-        }
-
-
-        .cold-reads-description {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: #004D5C;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-        }
-
-
-        .cold-reads-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
-            color: white;
-            text-decoration: none;
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'Fraunces', Georgia, serif;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            box-shadow: 
-                0 8px 24px rgba(0, 188, 212, 0.5),
-                0 0 20px rgba(129, 212, 250, 0.4),
-                inset 0 -2px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s var(--reading-time);
-            position: relative;
-            overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .cold-reads-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-            transition: left 0.5s;
-        }
-
-        .cold-reads-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 12px 32px rgba(0, 188, 212, 0.7),
-                0 0 30px rgba(129, 212, 250, 0.6),
-                inset 0 -2px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .cold-reads-button:hover::before {
-            left: 100%;
-        }
-
-        .cold-reads-button:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
         /* Daily Reading Buttons */
         .daily-reading-buttons {
             display: grid;
@@ -1395,30 +1184,6 @@
                 padding: 0.5rem 0.75rem;
             }
 
-            .cold-reads-section {
-                padding: 2rem 1.5rem;
-                margin: 2rem 0;
-            }
-
-            .cold-reads-section::before,
-            .cold-reads-section::after {
-                font-size: 3rem;
-            }
-
-            .cold-reads-title {
-                font-size: 1.75rem;
-            }
-
-            .cold-reads-description {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .cold-reads-button {
-                padding: 1.25rem 2rem;
-                font-size: 1.25rem;
-            }
-
             .quick-actions {
                 bottom: 15px;
                 right: 15px;
@@ -1487,24 +1252,6 @@
             .spelling-word {
                 padding: 0.5rem;
                 font-size: 0.9rem;
-            }
-
-            .cold-reads-section {
-                padding: 1.5rem 1rem;
-            }
-
-            .cold-reads-section::before,
-            .cold-reads-section::after {
-                font-size: 2.5rem;
-            }
-
-            .cold-reads-title {
-                font-size: 1.5rem;
-            }
-
-            .cold-reads-button {
-                padding: 1rem 1.5rem;
-                font-size: 1.125rem;
             }
 
             .quick-actions {
@@ -1602,13 +1349,6 @@
                     <a href="index.html" class="nav-link active">
                         <span>🏠</span>
                         <span>Newsletter</span>
-                    </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="cold-reads-library.html" class="nav-link cold-reads-btn">
-                        <span>📚</span>
-                        <span>Cold Reads</span>
                     </a>
                 </li>
                 
