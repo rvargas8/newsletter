@@ -755,6 +755,36 @@
             background: linear-gradient(135deg, white 0%, #FFF4E6 100%);
         }
 
+        .field-trip-section {
+            border-color: var(--illinois-blue-light);
+            background: linear-gradient(135deg, white 0%, #f0f7fb 100%);
+            margin: 3rem 0;
+        }
+
+        .field-trip-section .field-trip-greeting {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .field-trip-section .subsection + p {
+            margin-top: 1.25rem;
+        }
+
+        .field-trip-section ol {
+            list-style: decimal;
+            padding-left: 1.75rem;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .field-trip-section ol li {
+            padding-left: 0.35rem;
+            margin-bottom: 0.875rem;
+        }
+
+        .field-trip-section ol li::before {
+            display: none;
+        }
+
         /* Clear hierarchy in headings */
         .section-box h3 {
             font-family: 'Fraunces', Georgia, serif;
