@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ReadReady - Cold read practice aligned with Florida B.E.S.T. Standards for grades 2-5. Improve reading comprehension with engaging passages and questions.">
+    <title>ReadReady - Cold Read Practice for Grades 2-5 | B.E.S.T. Standards Aligned</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #FFD93D;
+            --coral: #FF6B6B;
+            --teal: #4ECDC4;
+            --navy: #2C3E50;
+            --warm-white: #FFFEF7;
+            --purple: #9B59B6;
+            --green: #2ECC71;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+            padding: 0;
+            /* Bringhurst: Optimal line-height ratio (1.5 = perfect fifth) */
+            line-height: 1.5;
+            /* Bringhurst: Optimal character measure (45-75 characters per line) */
+            font-size: 16px;
+            color: var(--navy);
+            min-height: 100vh;
+            /* Bringhurst: Proper word spacing */
+            word-spacing: 0.05em;
+            /* Bringhurst: Letter spacing for readability */
+            letter-spacing: 0.01em;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--coral) 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .brand-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .brand-text {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-tagline {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            font-weight: 500;
+            margin-top: -0.25rem;
+        }
+
+        .container {
+            /* Bringhurst: Optimal reading width (65-75 characters) */
+            max-width: 65ch; /* Approximately 65 characters at base font size */
+            margin: 0 auto;
+            background: var(--warm-white);
+            /* Bringhurst: Consistent vertical rhythm using multiples of base line-height */
+            padding: clamp(2rem, 5vw, 4rem);
+            border-radius: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 8px 16px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--primary-yellow);
+        }
+
+        .header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            /* Bringhurst: Typographic scale - Major Third (1.25) from base */
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: var(--coral);
+            /* Bringhurst: Vertical rhythm - margin in multiples of line-height */
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            /* Bringhurst: Letter spacing for uppercase (0.05-0.1em) */
+            letter-spacing: 0.05em;
+            /* Bringhurst: Proper line-height for headings (tighter than body) */
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            /* Bringhurst: Minor Third scale (1.2) */
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+            /* Bringhurst: Proper line-height for subheadings */
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .tagline {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.75rem;
+            font-style: italic;
+            /* Bringhurst: Italic text needs slightly more letter-spacing */
+            letter-spacing: 0.02em;
+            line-height: 1.5;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            border-left: 6px solid #2196F3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-section::before {
+            content: '📖';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 4rem;
+            opacity: 0.1;
+        }
+
+        .intro-section p {
+            /* Bringhurst: Slightly larger for emphasis (1.125 = 18px at 16px base) */
+            font-size: 1.125rem;
+            /* Bringhurst: Optimal line-height for body text (1.5-1.6) */
+            line-height: 1.6;
+            /* Bringhurst: Vertical rhythm - spacing in multiples of line-height */
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            /* Bringhurst: Optimal measure for readability */
+            max-width: 65ch;
+        }
+
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .why-section {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border-left: 6px solid var(--green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-section::before {
+            content: '💡';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 4rem;
+            opacity: 0.15;
+        }
+
+        .why-section h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            /* Bringhurst: Perfect Fourth scale */
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.3;
+        }
+
+        .why-section p {
+            /* Bringhurst: Optimal line-height */
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            max-width: 65ch;
+            color: var(--navy);
+        }
+
+        .why-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .why-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-list li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            max-width: 60ch;
+        }
+
+        .why-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.5rem;
+            width: 2rem;
+            text-align: center;
+        }
+
+        .grades-section {
+            margin-top: 3rem;
+        }
+
+        .grades-section h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            /* Bringhurst: Perfect Fourth scale (1.333) */
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+            /* Bringhurst: Vertical rhythm */
+            margin-bottom: 2rem;
+            margin-top: 0;
+            line-height: 1.3;
+            letter-spacing: 0.02em;
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .grade-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border: 3px solid var(--teal);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--navy);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grade-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .grade-button:hover::before {
+            left: 100%;
+        }
+
+        .grade-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(78, 205, 196, 0.3);
+            border-color: var(--coral);
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 100%);
+        }
+
+        .grade-button .grade-number {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grade-button:hover .grade-number {
+            color: var(--coral);
+            transform: scale(1.1);
+        }
+
+        .grade-button .grade-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grade-button .passage-count {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tips-section {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border-left: 6px solid var(--primary-yellow);
+        }
+
+        .tips-section h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            /* Bringhurst: Vertical rhythm - padding in multiples */
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1rem;
+            /* Bringhurst: Optimal line-height */
+            line-height: 1.6;
+            /* Bringhurst: Optimal measure for lists */
+            max-width: 60ch;
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a252f 100%);
+            color: white;
+            border-radius: 20px;
+        }
+
+        .footer p {
+            /* Bringhurst: Vertical rhythm */
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer .brand-footer {
+            font-family: 'Fraunces', Georgia, serif;
+            /* Bringhurst: Minor Third scale */
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .top-nav {
+                padding: 0.75rem 1rem;
+            }
+
+            .brand-text {
+                font-size: 1.25rem;
+            }
+
+            .brand-tagline {
+                display: none;
+            }
+
+            .container {
+                padding: 1.5rem;
+                border-radius: 16px;
+                margin: 1rem;
+            }
+
+            .header {
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .intro-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .intro-section p {
+                font-size: 1rem;
+            }
+
+            .why-section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .why-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .why-section p {
+                font-size: 1rem;
+            }
+
+            .why-list li {
+                font-size: 1rem;
+                padding-left: 2rem;
+            }
+
+            .grades-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .grade-button {
+                padding: 1.5rem 1rem;
+            }
+
+            .grade-button .grade-number {
+                font-size: 2.5rem;
+            }
+
+            .grade-button .grade-label {
+                font-size: 1rem;
+            }
+
+            .tips-section {
+                padding: 1.5rem;
+            }
+
+            .tips-section h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grades-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-content">
+            <a href="readready.html" class="brand">
+                <span class="brand-icon">📚</span>
+                <div>
+                    <div class="brand-text">ReadReady</div>
+                    <div class="brand-tagline">Master Cold Reading</div>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to ReadReady</h1>
+            <div class="subtitle">Cold Read Practice for Grades 2-5</div>
+            <div class="tagline">Build confidence, improve comprehension, and become a better reader!</div>
+        </div>
+
+        <div class="intro-section">
+            <p><strong>What is Cold Reading?</strong></p>
+            <p>Cold reading means reading a passage for the first time without any preparation. It's an excellent way to practice your reading comprehension skills and improve your ability to understand new texts quickly.</p>
+            <p>Each passage includes comprehension questions aligned with Florida B.E.S.T. Standards to help you think critically about what you've read. Select your grade level below to get started!</p>
+            <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid rgba(33, 150, 243, 0.2); font-size: 0.9375rem; color: #555;"><strong>B.E.S.T. Standards Alignment:</strong> All passages and questions are designed to align with Florida's Benchmarks for Excellent Student Thinking (B.E.S.T.) Standards, focusing on reading comprehension, vocabulary, and critical thinking skills appropriate for each grade level.</p>
+        </div>
+
+        <div class="why-section">
+            <h3>Why Read Cold Reads?</h3>
+            <p>Cold reading practice is one of the most effective ways to improve your reading skills. Here's why it matters:</p>
+            <ul class="why-list">
+                <li><strong>Builds Real-World Skills:</strong> In school and life, you'll often need to read and understand new material quickly. Cold reading prepares you for these real-world situations.</li>
+                <li><strong>Improves Comprehension:</strong> When you read a passage for the first time, you practice identifying main ideas, understanding details, and making connections—all essential reading skills.</li>
+                <li><strong>Develops Critical Thinking:</strong> Answering questions about what you've read helps you think deeply about the text, analyze information, and draw conclusions.</li>
+                <li><strong>Builds Confidence:</strong> Regular practice with cold reads makes you feel more prepared and confident when facing new reading challenges in class or on tests.</li>
+                <li><strong>Aligned with B.E.S.T. Standards:</strong> Our passages and questions are designed to match Florida's educational standards, ensuring you're practicing skills that matter.</li>
+                <li><strong>Makes You a Better Reader:</strong> The more you practice reading new texts, the better you become at understanding, analyzing, and enjoying what you read.</li>
+                </ul>
+            <p>Remember: Every great reader started somewhere. With regular practice, you'll see your reading skills improve over time!</p>
+            </div>
+
+        <div class="grades-section">
+            <h2>Choose Your Grade</h2>
+            <div class="grades-grid">
+                <a href="grade2.html" class="grade-button">
+                    <div class="grade-number">2</div>
+                    <div class="grade-label">2nd Grade</div>
+                    <div class="passage-count">5 Passages</div>
+                </a>
+                <a href="grade3.html" class="grade-button">
+                    <div class="grade-number">3</div>
+                    <div class="grade-label">3rd Grade</div>
+                    <div class="passage-count">5 Passages</div>
+                </a>
+                <a href="grade4.html" class="grade-button">
+                    <div class="grade-number">4</div>
+                    <div class="grade-label">4th Grade</div>
+                    <div class="passage-count">5 Passages</div>
+                </a>
+                <a href="grade5.html" class="grade-button">
+                    <div class="grade-number">5</div>
+                    <div class="grade-label">5th Grade</div>
+                    <div class="passage-count">5 Passages</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h3>💡 Reading Tips</h3>
+            <ul class="tips-list">
+                <li>Read the passage carefully before answering questions</li>
+                <li>Look back at the text to find evidence for your answers</li>
+                <li>Take your time - there's no rush!</li>
+                <li>Practice regularly to see improvement</li>
+                <li>Ask for help if you're stuck on a question</li>
+                    </ul>
+        </div>
+
+        <div class="footer">
+            <p class="brand-footer">ReadReady</p>
+            <p><strong>Happy Reading! 📖</strong></p>
+            <p>Practice makes perfect - keep reading and improving!</p>
+        </div>
+    </div>
+</body>
+</html>
