@@ -123,8 +123,14 @@
             <h3 style="margin-bottom: 0.75rem;">☀️ Summer Tutoring Available!</h3>
             <p>Interested in keeping your child sharp over the summer? Our amazing colleague <strong>Mrs. Hammons</strong> is offering summer tutoring! She is a fantastic teacher and we highly recommend her. See the flyer below for details on her services.</p>
             <div style="margin-top: 1.25rem; text-align: center;">
-                <img src="hammons-tutoring.jpeg" alt="Mrs. Hammons Summer Tutoring Services" style="max-width: 100%; width: 420px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                <img src="hammons-tutoring.jpeg" alt="Mrs. Hammons Summer Tutoring Services" onclick="document.getElementById('tutoring-lightbox').style.display='flex'" style="max-width: 100%; width: 420px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); cursor: zoom-in;">
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">Tap image to enlarge</p>
             </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="tutoring-lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out; padding: 1rem;">
+            <img src="hammons-tutoring.jpeg" alt="Mrs. Hammons Summer Tutoring Services" style="max-width:95vw; max-height:95vh; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.5);">
         </div>
 
 
