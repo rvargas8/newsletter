@@ -702,6 +702,14 @@
             margin-bottom: 0;
         }
 
+        .intro-box .signature {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 1.85rem;
+            color: var(--illinois-orange);
+            margin-top: 0.5rem;
+        }
+
         /* Grid with clear gutters - easier to scan */
         .two-column {
             display: grid;
