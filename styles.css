@@ -666,6 +666,7 @@
             font-size: clamp(1.5rem, 3vw, 2.25rem);
             font-weight: 900;
             letter-spacing: 0.05em;
+            font-variant-numeric: oldstyle-nums;
         }
 
         /* Intro uses contrast to signal importance */
