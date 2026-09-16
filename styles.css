@@ -38,6 +38,10 @@
             box-sizing: border-box;
         }
 
+        h1, h2, h3, h4 {
+            text-wrap: balance;
+        }
+
         :root {
             --illinois-blue: #13294B;
             --illinois-orange: #FF5F00;
