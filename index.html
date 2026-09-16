@@ -255,7 +255,50 @@
             toggle.addEventListener('click', function(e) {
                 if (window.innerWidth <= 1024) {
                     e.preventDefault();
-                    const dropdown =
+                    const dropdown = this.closest('.dropdown');
+                    const isActive = dropdown.classList.contains('active');
 
+                    // Close all dropdowns first
+                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
 
+                    // Toggle this one
+                    if (!isActive) {
+                        dropdown.classList.add('active');
+                    }
+                }
+            });
+        });
 
+        // Close menu and dropdowns when clicking dropdown items
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 1024) {
+                if (!e.target.closest('.main-nav')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.textContent = '☰';
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>
