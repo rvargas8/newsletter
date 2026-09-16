@@ -702,6 +702,14 @@
             margin-bottom: 0;
         }
 
+        .intro-box a {
+            color: var(--illinois-orange);
+        }
+
+        .intro-box a:hover {
+            color: var(--illinois-blue);
+        }
+
         .intro-box .signature {
             font-family: 'Caveat', cursive;
             font-weight: 700;
