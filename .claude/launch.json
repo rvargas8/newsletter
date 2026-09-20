@@ -4,7 +4,7 @@
     {
       "name": "newsletter",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "/Users/admin/Desktop/newsletter"],
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "/Users/admin/projects/newsletter"],
       "port": 3456
     }
   ]
