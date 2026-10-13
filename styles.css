@@ -716,6 +716,20 @@
             color: var(--illinois-blue);
         }
 
+        .intro-flyer {
+            margin: 1.5rem 0;
+        }
+
+        .intro-flyer img {
+            display: block;
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            margin: 0.75rem auto 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
         .intro-box .signature {
             font-family: 'Caveat', cursive;
             font-weight: 700;
