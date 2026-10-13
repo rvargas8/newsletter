@@ -716,18 +716,14 @@
             color: var(--illinois-blue);
         }
 
-        .intro-flyer {
-            margin: 1.5rem 0;
+        .intro-box .dress-up-days {
+            margin: 0 0 1rem;
+            padding-left: 1.25rem;
         }
 
-        .intro-flyer img {
-            display: block;
-            width: 100%;
-            max-width: 640px;
-            height: auto;
-            margin: 0.75rem auto 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        .intro-box .dress-up-days li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
         }
 
         .intro-box .signature {
