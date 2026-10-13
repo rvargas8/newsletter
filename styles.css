@@ -784,6 +784,28 @@
         }
 
 
+        .wishlist-section {
+            border-color: var(--illinois-orange);
+            background: linear-gradient(135deg, white 0%, #FFF4E6 100%);
+            margin: 3rem 0;
+        }
+
+        .wishlist-section .wishlist-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            background: var(--illinois-orange);
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .wishlist-section .wishlist-button:hover,
+        .wishlist-section .wishlist-button:focus-visible {
+            background: var(--illinois-blue);
+        }
+
         .field-trip-section .field-trip-greeting {
             font-weight: 600;
             margin-bottom: 0.75rem;
