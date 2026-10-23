@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enrichment Packets - 3rd Grade</title>
+    <title>Math Homework - 3rd Grade</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -384,6 +384,98 @@
             margin-bottom: 0;
         }
 
+        .download-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0 0 2.5rem;
+        }
+
+        .download-row .download-btn {
+            margin-top: 0;
+        }
+
+        .hw-list {
+            list-style: none;
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hw-list li {
+            display: grid;
+            grid-template-columns: 11.5rem 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.85rem 1.25rem;
+            border-bottom: 1px solid #EEF0F3;
+            line-height: 1.4;
+        }
+
+        .hw-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hw-list li:nth-child(even) {
+            background: #FAFBFC;
+        }
+
+        .hw-date {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .hw-lesson {
+            color: #4B5563;
+        }
+
+        .hw-pages {
+            font-weight: 700;
+            color: var(--coral);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .hw-list li.hw-review {
+            background: #F0F4FA;
+        }
+
+        .hw-list li.hw-review .hw-pages {
+            color: #6B7280;
+            font-weight: 600;
+        }
+
+        .hw-list li.hw-test {
+            background: #FFF3EB;
+        }
+
+        .hw-list li.hw-test .hw-lesson {
+            color: var(--coral);
+            font-weight: 700;
+        }
+
+        .hw-list li.hw-test .hw-pages {
+            color: #6B7280;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        @media (max-width: 640px) {
+            .hw-list li {
+                grid-template-columns: 1fr auto;
+                gap: 0.15rem 0.75rem;
+                padding: 0.8rem 1rem;
+            }
+            .hw-date { grid-column: 1; grid-row: 1; }
+            .hw-lesson { grid-column: 1; grid-row: 2; font-size: 0.9rem; }
+            .hw-pages { grid-column: 2; grid-row: 1 / span 2; }
+            .download-row .download-btn { width: 100%; justify-content: center; }
+        }
+
         .example-box {
             background: #FFF8E7;
             border-left: 4px solid var(--primary-yellow);
@@ -480,26 +572,19 @@
         <a href="index.html" class="back-button">← Back to Newsletter</a>
         
         <div class="header">
-            <h1>Math Enrichment Packets</h1>
-            <div class="subtitle">Weekly Assignment Schedule</div>
+            <h1>Math Homework</h1>
+            <div class="subtitle">Topic 7 &middot; Add Multi-Digit Whole Numbers</div>
         </div>
 
-        <div class="day-card" style="text-align: center;">
-            <p style="margin-bottom: 0;">Want the Topic 7 Family Newsletter to print or save?</p>
-            <a href="topic-7-family-letter.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">📥 Download Topic 7 Family Newsletter (PDF)</a>
+        <div class="day-card letter-card">
+            <h4>Good afternoon families,</h4>
+            <p>We have officially started <strong>Topic 7</strong> in math! Please note that this year we will be moving around in the curriculum, so topics may not always be taught in order. We will also be skipping <strong>Lessons 7-3 and 7-4</strong> in this topic.</p>
+            <p>Thank you for your continued support at home!</p>
+        </div>
+
+        <div class="download-row">
+            <a href="topic-7-family-letter.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">📥 Topic 7 Family Newsletter (PDF)</a>
             <a href="topic-7-family-letter-spanish.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">📥 Descargar en Español (PDF)</a>
-        </div>
-
-        <div class="week-section">
-            <div class="week-header">
-                <h3>Now Starting: Topic 7 &mdash; Add Multi-Digit Whole Numbers</h3>
-            </div>
-
-            <div class="day-card letter-card">
-                <h4>Good afternoon families,</h4>
-                <p>We have officially started <strong>Topic 7</strong> in math! Please note that this year we will be moving around in the curriculum, so topics may not always be taught in order. We will also be skipping <strong>Lessons 7-3 and 7-4</strong> in this topic.</p>
-                <p>Thank you for your continued support at home!</p>
-            </div>
         </div>
 
         <div class="week-section">
@@ -507,109 +592,48 @@
                 <h3>Topic 7 Homework Schedule</h3>
             </div>
 
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📗</div>
-                    <div class="day-info">
-                        <h4>Thursday (Oct 22)</h4>
-                        <div class="date">Lesson 7-1</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Homework: <span class="page-number">Pages 101–102</span></li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📗</div>
-                    <div class="day-info">
-                        <h4>Friday (Oct 23)</h4>
-                        <div class="date">Lesson 7-2</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Homework: <span class="page-number">Pages 103–104</span></li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📗</div>
-                    <div class="day-info">
-                        <h4>Monday (Oct 26)</h4>
-                        <div class="date">Lesson 7-5</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Homework: <span class="page-number">Pages 109–110</span></li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📗</div>
-                    <div class="day-info">
-                        <h4>Tuesday (Oct 27)</h4>
-                        <div class="date">Lesson 7-6</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Homework: <span class="page-number">Pages 111–112</span></li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📗</div>
-                    <div class="day-info">
-                        <h4>Wednesday (Oct 28)</h4>
-                        <div class="date">Lesson 7-7</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Homework: <span class="page-number">Pages 113–114</span></li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📗</div>
-                    <div class="day-info">
-                        <h4>Thursday (Oct 29)</h4>
-                        <div class="date">Lesson 7-8</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Homework: <span class="page-number">Pages 115–116</span></li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">🔁</div>
-                    <div class="day-info">
-                        <h4>Friday (Oct 30) &amp; Monday (Nov 2)</h4>
-                        <div class="date">Review Days</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>No new lesson &mdash; reviewing Topic 7 skills</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-icon">📝</div>
-                    <div class="day-info">
-                        <h4>Tuesday (Nov 3)</h4>
-                        <div class="date">Topic 7 Assessment</div>
-                    </div>
-                </div>
-                <ul class="pages-list">
-                    <li>Projected date &mdash; please help your child review at home</li>
-                </ul>
-            </div>
+            <ul class="hw-list">
+                <li>
+                    <span class="hw-date">Thu 10/22</span>
+                    <span class="hw-lesson">Lesson 7-1</span>
+                    <span class="hw-pages">pp. 101–102</span>
+                </li>
+                <li>
+                    <span class="hw-date">Fri 10/23</span>
+                    <span class="hw-lesson">Lesson 7-2</span>
+                    <span class="hw-pages">pp. 103–104</span>
+                </li>
+                <li>
+                    <span class="hw-date">Mon 10/26</span>
+                    <span class="hw-lesson">Lesson 7-5</span>
+                    <span class="hw-pages">pp. 109–110</span>
+                </li>
+                <li>
+                    <span class="hw-date">Tue 10/27</span>
+                    <span class="hw-lesson">Lesson 7-6</span>
+                    <span class="hw-pages">pp. 111–112</span>
+                </li>
+                <li>
+                    <span class="hw-date">Wed 10/28</span>
+                    <span class="hw-lesson">Lesson 7-7</span>
+                    <span class="hw-pages">pp. 113–114</span>
+                </li>
+                <li>
+                    <span class="hw-date">Thu 10/29</span>
+                    <span class="hw-lesson">Lesson 7-8</span>
+                    <span class="hw-pages">pp. 115–116</span>
+                </li>
+                <li class="hw-review">
+                    <span class="hw-date">Fri 10/30 &amp; Mon 11/2</span>
+                    <span class="hw-lesson">Review Days</span>
+                    <span class="hw-pages">No new pages</span>
+                </li>
+                <li class="hw-test">
+                    <span class="hw-date">Tue 11/3</span>
+                    <span class="hw-lesson">Topic 7 Assessment</span>
+                    <span class="hw-pages">Projected date</span>
+                </li>
+            </ul>
         </div>
 
         <div class="footer">
